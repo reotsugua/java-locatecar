@@ -1,46 +1,32 @@
 package Projeto.Recursos;
-public class Veiculo {
-    private String tipo;
-    private String nome;
-    private String agencia;
-    private boolean disponivel;
 
-    public Veiculo(String tipo, String nome, String agencia) {
-        this.tipo = tipo;
-        this.nome = nome;
-        this.agencia = agencia;
-        this.disponivel = true;
+import java.math.BigDecimal;
+
+public abstract class Veiculo {
+
+    public Veiculo() {
+        this.valorDiaria = getValorDiaria();
     }
 
-    public String getTipo() {
-        return tipo;
+    protected String fabricante;
+
+    protected String placa;
+
+    protected String modelo;
+
+    protected BigDecimal valorDiaria;
+
+    protected boolean alugado;
+
+    public abstract BigDecimal getValorDiaria();
+
+    public boolean isAlugado() {
+        return alugado;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setAlugado(boolean disponivel) {
+        alugado = disponivel;
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(String agencia) {
-        this.agencia = agencia;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
-    }
-
-    public void setDisponivel(boolean disponivel) {
-        this.disponivel = disponivel;
-    }
 }
