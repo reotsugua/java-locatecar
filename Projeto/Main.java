@@ -6,7 +6,10 @@ public class Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         Menu menu = new Menu();
         try {
-            menu.menuPrincipal();
+           do {
+               menu.menuPrincipal();
+           }while(true);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

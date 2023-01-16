@@ -4,6 +4,9 @@ public class Agencia {
     private String nome;
     private String endereco;
 
+    public Agencia() {
+    }
+
     public Agencia(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;

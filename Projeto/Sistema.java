@@ -1,7 +1,7 @@
 package Projeto;
 
 import Projeto.Recursos.*;
-import Projeto.enums.TipoVeiculo;
+import Projeto.util.ConsoleUIHelper;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
-//        private List<Veiculo> veiculos;
-//        private List<Agencia> agencias;
-//        private List<Cliente> clientes;
-//        private List<Aluguel> alugueis;
+        private List<Veiculo> veiculos;
+        private List<Agencia> agencias = new ArrayList<>();
+        private List<Cliente> clientes;
+        private List<Aluguel> alugueis;
 //        private static double VALOR_DIARIA_MOTO = 100;
 //        private static double VALOR_DIARIA_CARRO = 150;
 //        private static double VALOR_DIARIA_CAMINHAO = 200;
@@ -22,19 +22,29 @@ public class Sistema {
 //        private static double PORCENTAGEM_DESCONTO_PF = 0.05;
 //        private static double PORCENTAGEM_DESCONTO_PJ = 0.1;
 //
-//        public Sistema() {
+        public Sistema() {
 //            this.veiculos = new ArrayList<>();
 //            this.agencias = new ArrayList<>();
 //            this.clientes = new ArrayList<>();
 //            this.alugueis = new ArrayList<>();
-//        }
+        }
 //
 //        // VEÍCULO:
-//        public void cadastrarVeiculo(TipoVeiculo tipo, String nome, String agencia) {
-//            Veiculo veiculo = new Veiculo(tipo, nome, agencia);
-//            veiculos.add(veiculo);
+//        public void cadastrarVeiculo() {
+//            int opcao = ConsoleUIHelper.askChooseOption("Cadastrar veículo:", "Moto", "Carro", "Caminhao");
+//            switch (opcao){
+//                case 0:
+//                    Veiculo veiculo = new Moto();
+//                    cadastrarAgencia(veiculo);
+//                case 1:
+//                    Carro veiculo = new Carro();
+//                    veiculos.add(veiculo);
+//                case 2:
+//                    Caminhao veiculo = new Caminhao();
+//                    veiculos.add(veiculo);
+//            }
 //        }
-//
+
 //        public void alterarVeiculo(TipoVeiculo tipo, String nome, String agencia) {
 //            for (Veiculo veiculo : veiculos) {
 //                if (veiculo.getNome().equals(nome)) {
@@ -55,11 +65,28 @@ public class Sistema {
 //        }
 //
 //        // AGENCIA:
-//        public void cadastrarAgencia(String nome, String endereco) {
-//            Agencia agencia = new Agencia(nome, endereco);
-//            agencias.add(agencia);
-//        }
-//
+        public Agencia cadastrarAgencia(Agencia agencia) {
+            String nome = ConsoleUIHelper.askNoEmptyInput("Digite o nome da Agencia: ",10);
+            String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o Logradouro da Agencia",10);
+            agencia = new Agencia(nome, endereco);
+            if(checarAgencia(agencia)){
+                agencias.add(agencia);
+                return  agencia;
+            }else{
+                agencia = new Agencia();
+                return agencia;
+            }
+        }
+
+        public boolean checarAgencia(Agencia agencia){
+            for (Agencia item: agencias) {
+                if (item.equals(agencia)) {
+                    ConsoleUIHelper.drawHeader("Agencia já cadastrada no sistema",80);
+                    return false;
+                }
+            }
+            return true;
+        }
 //        public void alterarAgencia(String nome, String endereco) {
 //            for (Agencia agencia : agencias) {
 //                if (agencia.getNome().equals(nome)) {
@@ -69,14 +96,57 @@ public class Sistema {
 //            }
 //        }
 //
-//        public Agencia buscarAgenciaPorNome(String nome) {
-//            for (Agencia agencia : agencias) {
-//                if (agencia.getNome().contains(nome)) {
-//                    return agencia;
-//                }
-//            }
-//            return null;
-//        }
+        public void listarAgencias(){
+            ConsoleUIHelper.drawHeader("Lista de Agencias",80);
+            int tamanhoPagina = 10;
+            int posicaoAtual = 0;
+            System.out.println();
+            listarPaginado(posicaoAtual,tamanhoPagina).forEach(agencia -> {
+                System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());});
+        }
+
+    public List<Agencia> listarPaginado (int start, int quantidade) {
+        List<Agencia> agenciasEncontradas = new ArrayList<>();
+        if (start < 0 || start >= agencias.size()) {
+            start = 0;
+        }
+        if (quantidade < 0) {
+            quantidade = 0;
+        }
+        if (quantidade > agencias.size()) {
+            quantidade = agencias.size();
+        }
+        if (start+quantidade >= agencias.size()) {
+            quantidade = (agencias.size() - start);
+        }
+        for (int i = start; i < start + quantidade; i++) {
+            if(i == agencias.size()) {
+                break;
+            }
+            agenciasEncontradas.add(agencias.get(i));
+        }
+        return agenciasEncontradas;
+    }
+
+    public int agenciaPosition(Agencia agencia) {
+        String nomeAgencia = agencia.getNome();
+        for (int index = 0; index < agencias.size(); index++) {
+            if(agencias.get(index).getNome().equals(nomeAgencia)){
+                return index;
+            }
+        }
+        return -2;
+    }
+
+
+    public Agencia buscarAgenciaPorNome(String nome) {
+            for (Agencia agencia : agencias) {
+                if (agencia.getNome().contains(nome)) {
+                    return agencia;
+                }
+            }
+            return null;
+        }
 //
 //        public Agencia buscarAgenciaPorEndereco(String endereco) {
 //            for (Agencia agencia : agencias) {

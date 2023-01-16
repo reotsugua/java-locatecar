@@ -1,14 +1,19 @@
 package Projeto;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
+
+import Projeto.Recursos.Agencia;
 import Projeto.util.ConsoleUIHelper;
 
 public class Menu {
+    List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
 
     public void menuPrincipal () throws IOException, ClassNotFoundException {
+        ConsoleUIHelper.drawHeader("Menu Principal",80);
         int opcao = ConsoleUIHelper.askChooseOption(
                 "Digite a opção desejada:",
                 "Gestão de Veículos.",
@@ -31,8 +36,7 @@ public class Menu {
                     menuAlguelDevolucao();
                     break;
                 case 4:
-                    System.out.println("Programa encerrado.");
-                    break;
+                    System.exit(0);
                 default:
                     System.out.println("Opção inválida!");
                     break;
@@ -40,8 +44,9 @@ public class Menu {
         }
 
     public void menuVeiculos() throws IOException, ClassNotFoundException {
+        ConsoleUIHelper.drawHeader("Gestão de Veículos",80);
         int opcao = ConsoleUIHelper.askChooseOption(
-        "Menu - Veículos:",
+        "Opções:",
         "Cadastrar veículos.",
         "Alterar um veículo cadastrado.",
         "Buscar veículo por parte do nome.",
@@ -50,7 +55,7 @@ public class Menu {
         switch (opcao) {
             case 0:
                 System.out.println("Cadastrar veiculo");
-                //sistema.cadastrarVeiculo(TipoVeiculo.MOTO, "nome","agencia");
+                //sistema.cadastrarVeiculo();
 
                 break;
             case 1:
@@ -71,26 +76,29 @@ public class Menu {
     }
 
     public void menuAgencias() throws IOException, ClassNotFoundException {
+
+        // Reinserir opcao de buscar por nome ou endereco dentro da listagem de agencias (submenu)
+        ConsoleUIHelper.drawHeader("Gestão de Agencias",80);
         int opcao = ConsoleUIHelper.askChooseOption(
-        "Menu - Agências:",
+        "Opções:",
        "Cadastrar a agência onde o veículo será alugado/devolvido.",
         "Alterar a agência onde o veículo será alugado/devolvido.",
-        "Buscar uma agência por parte do nome.",
+        "Listar agências",
         "Buscar uma agência por parte do logradouro.",
         "Voltar para o menu principal.");
 
         switch (opcao) {
             case 0:
-                System.out.println("Cadastrar agencia");
-                //sistema.cadastrarAgencia("nome", "endereço");
+                Agencia agencia = new Agencia();
+                agencia = sistema.cadastrarAgencia(agencia);
                 break;
             case 1:
                 System.out.println("Alterar agencia");
                 //sistema.alterarAgencia("nome", "endereço");
                 break;
             case 2:
-                System.out.println("Buscar por nome");
-                //sistema.buscarAgenciaPorNome("nome");
+                System.out.println("Buscar Agencias");
+                sistema.listarAgencias();
                 break;
             case 3:
                 System.out.println("buscar por endereco");
@@ -106,8 +114,9 @@ public class Menu {
     }
 
     public void menuClientes() throws IOException, ClassNotFoundException {
+        ConsoleUIHelper.drawHeader("Gestão de Clientes",80);
         int opcao = ConsoleUIHelper.askChooseOption(
-        "Menu - Clientes:",
+        "Opções:",
         "Cadastrar cliente pessoa fisica.",
         "Cadastrar cliente pessoa jurídica.",
         "Alterar o cliente pessoa fisica.",
@@ -137,8 +146,9 @@ public class Menu {
     }
 
     public void menuAlguelDevolucao() throws IOException, ClassNotFoundException {
+        ConsoleUIHelper.drawHeader("Gestão de Alugueis",80);
         int opcao = ConsoleUIHelper.askChooseOption(
-        "Menu - Alguél/Devolução:",
+        "Opções:",
         "Alugar um veículo para pessoa fisica/juridica.",
         "Devolver um veículo para pessoa fisica/juridica.",
         "Voltar para o menu principal.");
