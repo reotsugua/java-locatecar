@@ -1,7 +1,16 @@
 # LocateCar-SantanderCoders
 Projeto Locadora de veículos do Bootcamp Santander Coders
 
-LocateCar - Locadora de veículos
+## Integrantes do Grupo
+- Arthur Bicego Quintaneira
+- Camila Melo
+- Felipe Menezes de Almeida
+- Joao Victor Rodrigues
+- Renan Augusto Santos
+
+
+
+## LocateCar - Locadora de veículos
 Criar uma aplicação que gerencie o aluguel de veículos, onde cada item abaixo seja considerado:
 
 ## Itens obrigatórios
