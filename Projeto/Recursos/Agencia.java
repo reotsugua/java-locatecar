@@ -1,8 +1,12 @@
 package Projeto.Recursos;
 
+import java.util.List;
+
 public class Agencia {
     private String nome;
     private String endereco;
+
+    private List<Veiculo> inventario;
 
     public Agencia() {
     }
@@ -27,4 +31,5 @@ public class Agencia {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+
 }

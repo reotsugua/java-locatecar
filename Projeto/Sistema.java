@@ -14,6 +14,8 @@ public class Sistema {
         private List<Agencia> agencias = new ArrayList<>();
         private List<Cliente> clientes;
         private List<Aluguel> alugueis;
+
+        private Agencia agencia;
 //        private static double VALOR_DIARIA_MOTO = 100;
 //        private static double VALOR_DIARIA_CARRO = 150;
 //        private static double VALOR_DIARIA_CAMINHAO = 200;
@@ -76,6 +78,7 @@ public class Sistema {
                 agencia = new Agencia();
                 return agencia;
             }
+
         }
 
         public boolean checarAgencia(Agencia agencia){
@@ -87,25 +90,57 @@ public class Sistema {
             }
             return true;
         }
-//        public void alterarAgencia(String nome, String endereco) {
-//            for (Agencia agencia : agencias) {
-//                if (agencia.getNome().equals(nome)) {
-//                    agencia.setEndereco(endereco);
-//                    break;
-//                }
-//            }
-//        }
-//
+        public void alterarAgencia(Integer idAgencia) {
+            boolean continuar = true;
+            ConsoleUIHelper.drawHeader("Editar Agencia",80);
+            int opcao = ConsoleUIHelper.askChooseOption("Editar","Nome da agencia","Endereço da agencia");
+            String nome = ConsoleUIHelper.askNoEmptyInput("Digite o novo nome da agencia:",10);
+            String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o novo endereco:",10);
+            while (continuar){
+                for (Agencia agencia : agencias) {
+                    if (agencia.getNome().equals(nome)) {
+                        agencia.setEndereco(endereco);
+                        break;
+                    }
+                }
+            }
+        }
+
         public void listarAgencias(){
+            /*
+            *  Exibir os itens dentro de uma List
+            * */
             ConsoleUIHelper.drawHeader("Lista de Agencias",80);
             int tamanhoPagina = 10;
             int posicaoAtual = 0;
             System.out.println();
             listarPaginado(posicaoAtual,tamanhoPagina).forEach(agencia -> {
                 System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());});
+            ConsoleUIHelper.drawLine(80);
+            int opcaoPagina;
+            do {
+                opcaoPagina = ConsoleUIHelper.askChooseOption("Opções","Próxima página","Voltar ao Menu");
+                switch (opcaoPagina){
+                    case 0 ->{
+                        ConsoleUIHelper.drawHeader("Lista de contatos", 80);
+                        posicaoAtual += tamanhoPagina;
+                        listarPaginado(posicaoAtual, tamanhoPagina).forEach(agencia -> {System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());
+                        });
+                        ConsoleUIHelper.drawLine(80);
+                        System.out.println();
+                    }
+                    // Na ultima pagina nao esta voltando a pagina 1
+                    case 1 ->{ opcaoPagina = 2;}
+                }
+            }while(opcaoPagina == 1);
+
         }
 
+
     public List<Agencia> listarPaginado (int start, int quantidade) {
+            /*
+            *
+            * */
         List<Agencia> agenciasEncontradas = new ArrayList<>();
         if (start < 0 || start >= agencias.size()) {
             start = 0;

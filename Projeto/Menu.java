@@ -76,8 +76,9 @@ public class Menu {
     }
 
     public void menuAgencias() throws IOException, ClassNotFoundException {
-
+        boolean continuar = true;
         // Reinserir opcao de buscar por nome ou endereco dentro da listagem de agencias (submenu)
+        while (continuar){
         ConsoleUIHelper.drawHeader("Gestão de Agencias",80);
         int opcao = ConsoleUIHelper.askChooseOption(
         "Opções:",
@@ -105,12 +106,14 @@ public class Menu {
                 //sistema.buscarAgenciaPorEndereco("endereço");
                 break;
             case 4:
+                continuar = false;
                 menuPrincipal();
                 break;
             default:
                 System.out.println("Opção inválida!");
                 break;
         }
+    }
     }
 
     public void menuClientes() throws IOException, ClassNotFoundException {
