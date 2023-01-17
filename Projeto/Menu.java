@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-import Projeto.Recursos.Agencia;
+import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
 
 public class Menu {

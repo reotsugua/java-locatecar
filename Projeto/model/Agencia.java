@@ -1,4 +1,4 @@
-package Projeto.Recursos;
+package Projeto.model;
 
 import java.util.List;
 
