@@ -130,7 +130,7 @@ public class Menu {
                 sistema.cadastrarCliente();
                 break;
             case 1:
-                //sistema.alterarCliente("nome", "tipo");
+                sistema.alterarCliente();
                 break;
             case 2:
                 sistema.listarClientes();
