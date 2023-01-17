@@ -211,15 +211,11 @@ public class Sistema {
         clienteView.listarClientes();
     }
 
-    /*
-    public void alterarCliente(String nome) {
-        for (Cliente cliente : clientes) {
-            if (cliente.getNome().equals(nome)) {
-                break;
-            }
-        }
+    public void alterarCliente() {
+        clienteView.editarCliente();
     }
 
+    /*
     public Cliente buscarClientePorNome(String nome) {
         for (Cliente cliente : clientes) {
             if (cliente.getNome().contains(nome)) {
