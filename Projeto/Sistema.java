@@ -1,22 +1,22 @@
 package Projeto;
 
-import Projeto.Recursos.*;
+import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
+import Projeto.view.ClienteView;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Sistema {
-        private List<Veiculo> veiculos;
-        private List<Agencia> agencias = new ArrayList<>();
-        private List<Cliente> clientes;
-        private List<Aluguel> alugueis;
+    private List<Veiculo> veiculos;
+    private List<Agencia> agencias = new ArrayList<>();
+    private List<Aluguel> alugueis;
 
-        private Agencia agencia;
-//        private static double VALOR_DIARIA_MOTO = 100;
+    private Agencia agencia;
+
+    public static ClienteView clienteView;
+
+    //        private static double VALOR_DIARIA_MOTO = 100;
 //        private static double VALOR_DIARIA_CARRO = 150;
 //        private static double VALOR_DIARIA_CAMINHAO = 200;
 //        private static int LIMITE_DIAS_DESCONTO_PF = 5;
@@ -24,12 +24,15 @@ public class Sistema {
 //        private static double PORCENTAGEM_DESCONTO_PF = 0.05;
 //        private static double PORCENTAGEM_DESCONTO_PJ = 0.1;
 //
-        public Sistema() {
+    public Sistema() {
 //            this.veiculos = new ArrayList<>();
 //            this.agencias = new ArrayList<>();
 //            this.clientes = new ArrayList<>();
 //            this.alugueis = new ArrayList<>();
+        if(clienteView == null) {
+            clienteView = new ClienteView();
         }
+    }
 //
 //        // VEÍCULO:
 //        public void cadastrarVeiculo() {
@@ -47,7 +50,7 @@ public class Sistema {
 //            }
 //        }
 
-//        public void alterarVeiculo(TipoVeiculo tipo, String nome, String agencia) {
+    //        public void alterarVeiculo(TipoVeiculo tipo, String nome, String agencia) {
 //            for (Veiculo veiculo : veiculos) {
 //                if (veiculo.getNome().equals(nome)) {
 //                    veiculo.setTipo(tipo);
@@ -67,80 +70,85 @@ public class Sistema {
 //        }
 //
 //        // AGENCIA:
-        public Agencia cadastrarAgencia(Agencia agencia) {
-            String nome = ConsoleUIHelper.askNoEmptyInput("Digite o nome da Agencia: ",10);
-            String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o Logradouro da Agencia",10);
-            agencia = new Agencia(nome, endereco);
-            if(checarAgencia(agencia)){
-                agencias.add(agencia);
-                return  agencia;
-            }else{
-                agencia = new Agencia();
-                return agencia;
-            }
-
+    public Agencia cadastrarAgencia(Agencia agencia) {
+        String nome = ConsoleUIHelper.askNoEmptyInput("Digite o nome da Agencia: ", 10);
+        String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o Logradouro da Agencia", 10);
+        agencia = new Agencia(nome, endereco);
+        if (checarAgencia(agencia)) {
+            agencias.add(agencia);
+            return agencia;
+        } else {
+            agencia = new Agencia();
+            return agencia;
         }
 
-        public boolean checarAgencia(Agencia agencia){
-            for (Agencia item: agencias) {
-                if (item.equals(agencia)) {
-                    ConsoleUIHelper.drawHeader("Agencia já cadastrada no sistema",80);
-                    return false;
-                }
-            }
-            return true;
-        }
-        public void alterarAgencia(Integer idAgencia) {
-            boolean continuar = true;
-            ConsoleUIHelper.drawHeader("Editar Agencia",80);
-            int opcao = ConsoleUIHelper.askChooseOption("Editar","Nome da agencia","Endereço da agencia");
-            String nome = ConsoleUIHelper.askNoEmptyInput("Digite o novo nome da agencia:",10);
-            String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o novo endereco:",10);
-            while (continuar){
-                for (Agencia agencia : agencias) {
-                    if (agencia.getNome().equals(nome)) {
-                        agencia.setEndereco(endereco);
-                        break;
-                    }
-                }
+    }
+
+    public boolean checarAgencia(Agencia agencia) {
+        for (Agencia item : agencias) {
+            if (item.equals(agencia)) {
+                ConsoleUIHelper.drawHeader("Agencia já cadastrada no sistema", 80);
+                return false;
             }
         }
+        return true;
+    }
 
-        public void listarAgencias(){
-            /*
-            *  Exibir os itens dentro de uma List
-            * */
-            ConsoleUIHelper.drawHeader("Lista de Agencias",80);
-            int tamanhoPagina = 10;
-            int posicaoAtual = 0;
-            System.out.println();
-            listarPaginado(posicaoAtual,tamanhoPagina).forEach(agencia -> {
-                System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());});
-            ConsoleUIHelper.drawLine(80);
-            int opcaoPagina;
-            do {
-                opcaoPagina = ConsoleUIHelper.askChooseOption("Opções","Próxima página","Voltar ao Menu");
-                switch (opcaoPagina){
-                    case 0 ->{
-                        ConsoleUIHelper.drawHeader("Lista de contatos", 80);
-                        posicaoAtual += tamanhoPagina;
-                        listarPaginado(posicaoAtual, tamanhoPagina).forEach(agencia -> {System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());
-                        });
-                        ConsoleUIHelper.drawLine(80);
-                        System.out.println();
-                    }
-                    // Na ultima pagina nao esta voltando a pagina 1
-                    case 1 ->{ opcaoPagina = 2;}
+    public void alterarAgencia(Integer idAgencia) {
+        boolean continuar = true;
+        ConsoleUIHelper.drawHeader("Editar Agencia", 80);
+        int opcao = ConsoleUIHelper.askChooseOption("Editar", "Nome da agencia", "Endereço da agencia");
+        String nome = ConsoleUIHelper.askNoEmptyInput("Digite o novo nome da agencia:", 10);
+        String endereco = ConsoleUIHelper.askNoEmptyInput("Digite o novo endereco:", 10);
+        while (continuar) {
+            for (Agencia agencia : agencias) {
+                if (agencia.getNome().equals(nome)) {
+                    agencia.setEndereco(endereco);
+                    break;
                 }
-            }while(opcaoPagina == 1);
-
+            }
         }
+    }
+
+    public void listarAgencias() {
+        /*
+         *  Exibir os itens dentro de uma List
+         * */
+        ConsoleUIHelper.drawHeader("Lista de Agencias", 80);
+        int tamanhoPagina = 10;
+        int posicaoAtual = 0;
+        System.out.println();
+        listarPaginado(posicaoAtual, tamanhoPagina).forEach(agencia -> {
+            System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());
+        });
+        ConsoleUIHelper.drawLine(80);
+        int opcaoPagina;
+        do {
+            opcaoPagina = ConsoleUIHelper.askChooseOption("Opções", "Próxima página", "Voltar ao Menu");
+            switch (opcaoPagina) {
+                case 0 -> {
+                    ConsoleUIHelper.drawHeader("Lista de contatos", 80);
+                    posicaoAtual += tamanhoPagina;
+                    listarPaginado(posicaoAtual, tamanhoPagina).forEach(agencia -> {
+                        System.out.println(agenciaPosition(agencia) + " - " + agencia.getNome());
+                    });
+                    ConsoleUIHelper.drawLine(80);
+                    System.out.println();
+                }
+                // Na ultima pagina nao esta voltando a pagina 1
+                case 1 -> {
+                    opcaoPagina = 2;
+                }
+            }
+        } while (opcaoPagina == 1);
+
+    }
 
 
-    public List<Agencia> listarPaginado (int start, int quantidade) {
-            /*
-            *
-            * */
+    public List<Agencia> listarPaginado(int start, int quantidade) {
+        /*
+         *
+         * */
         List<Agencia> agenciasEncontradas = new ArrayList<>();
         if (start < 0 || start >= agencias.size()) {
             start = 0;
@@ -151,11 +159,11 @@ public class Sistema {
         if (quantidade > agencias.size()) {
             quantidade = agencias.size();
         }
-        if (start+quantidade >= agencias.size()) {
+        if (start + quantidade >= agencias.size()) {
             quantidade = (agencias.size() - start);
         }
         for (int i = start; i < start + quantidade; i++) {
-            if(i == agencias.size()) {
+            if (i == agencias.size()) {
                 break;
             }
             agenciasEncontradas.add(agencias.get(i));
@@ -166,7 +174,7 @@ public class Sistema {
     public int agenciaPosition(Agencia agencia) {
         String nomeAgencia = agencia.getNome();
         for (int index = 0; index < agencias.size(); index++) {
-            if(agencias.get(index).getNome().equals(nomeAgencia)){
+            if (agencias.get(index).getNome().equals(nomeAgencia)) {
                 return index;
             }
         }
@@ -175,14 +183,15 @@ public class Sistema {
 
 
     public Agencia buscarAgenciaPorNome(String nome) {
-            for (Agencia agencia : agencias) {
-                if (agencia.getNome().contains(nome)) {
-                    return agencia;
-                }
+        for (Agencia agencia : agencias) {
+            if (agencia.getNome().contains(nome)) {
+                return agencia;
             }
-            return null;
         }
-//
+        return null;
+    }
+
+    //
 //        public Agencia buscarAgenciaPorEndereco(String endereco) {
 //            for (Agencia agencia : agencias) {
 //                if (agencia.getEndereco().contains(endereco)) {
@@ -192,21 +201,35 @@ public class Sistema {
 //            return null;
 //        }
 //
-//        // CLIENTES:
-//        public void cadastrarCliente(String nome, String tipo) {
-//            Cliente cliente = new Cliente(nome, tipo);
-//            clientes.add(cliente);
-//        }
-//
-//        public void alterarCliente(String nome, String tipo) {
-//            for (Cliente cliente : clientes) {
-//                if (cliente.getNome().equals(nome)) {
-//                    cliente.setTipo(tipo);
-//                    break;
-//                }
-//            }
-//        }
-//
+
+    // CLIENTES:
+    public void cadastrarCliente() {
+        clienteView.adicionarCliente();
+    }
+
+    public void listarClientes() {
+        clienteView.listarClientes();
+    }
+
+    /*
+    public void alterarCliente(String nome) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equals(nome)) {
+                break;
+            }
+        }
+    }
+
+    public Cliente buscarClientePorNome(String nome) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().contains(nome)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+    */
+
 //        // ALUGUEL:
 //        public void alugarVeiculo(String veiculo, String cliente, String agencia, LocalDateTime dataHoraInicio) {
 //            Carro v = buscarVeiculoPorNome(veiculo);
@@ -256,14 +279,7 @@ public class Sistema {
 //            }
 //        }
 //
-//        public Cliente buscarClientePorNome(String nome) {
-//            for (Cliente cliente : clientes) {
-//                if (cliente.getNome().contains(nome)) {
-//                    return cliente;
-//                }
-//            }
-//            return null;
-//        }
+//
 //
 //        public void gerarComprovanteAluguel(Aluguel aluguel) {
 //            // Código para gerar comprovante de aluguel

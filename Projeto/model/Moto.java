@@ -1,19 +1,17 @@
-package Projeto.Recursos;
+package Projeto.model;
 
 import java.math.BigDecimal;
 
-public class Caminhao extends Veiculo {
+public class Moto extends Veiculo {
 
-        public Caminhao() {
+        public Moto() {
             super();
         }
 
         @Override
         public BigDecimal getValorDiaria() {
-            return new BigDecimal(200.0);
+            return new BigDecimal(100.0);
         }
-
-
 
 }
 
