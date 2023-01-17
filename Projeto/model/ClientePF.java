@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public class ClientePF extends Cliente {
 
-    private Integer cpf;
-    public ClientePF(String nome, Integer cpf) {
+    private String cpf;
+    public ClientePF(String nome, String cpf) {
         super(nome);
         this.cpf = cpf;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

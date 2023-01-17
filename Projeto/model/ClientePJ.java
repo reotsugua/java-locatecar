@@ -4,17 +4,17 @@ import java.util.Objects;
 
 public class ClientePJ extends Cliente {
 
-    private Integer cnpj;
-    public ClientePJ(String nome, Integer cnpj) {
+    private String cnpj;
+    public ClientePJ(String nome, String cnpj) {
         super(nome);
         this.cnpj = cnpj;
     }
 
-    public Integer getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(Integer cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 

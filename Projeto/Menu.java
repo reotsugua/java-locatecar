@@ -120,26 +120,22 @@ public class Menu {
         ConsoleUIHelper.drawHeader("Gestão de Clientes",80);
         int opcao = ConsoleUIHelper.askChooseOption(
         "Opções:",
-        "Cadastrar cliente pessoa fisica.",
-        "Cadastrar cliente pessoa jurídica.",
-        "Alterar o cliente pessoa fisica.",
-        "Alterar o cliente pessoa juridica.",
+        "Cadastrar cliente.",
+        "Alterar cliente.",
+        "Listar clientes",
         "Voltar para o menu principal.");
 
         switch (opcao) {
             case 0:
-                //sistema.cadastrarCliente("nome", "tipo");
+                sistema.cadastrarCliente();
                 break;
             case 1:
-                //sistema.cadastrarCliente("nome", "tipo");
+                //sistema.alterarCliente("nome", "tipo");
                 break;
             case 2:
-                //sistema.alterarCliente("nome", "tipo");
+                sistema.listarClientes();
                 break;
             case 3:
-                //sistema.alterarCliente("nome", "tipo");
-                break;
-            case 4:
                 menuPrincipal();
                 break;
             default:
