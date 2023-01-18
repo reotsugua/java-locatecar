@@ -3,6 +3,7 @@ package Projeto.model;
 import java.util.Objects;
 
 public class Cliente {
+
     private String nome;
 
     public Cliente (String nome) {
