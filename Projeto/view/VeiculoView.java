@@ -5,7 +5,6 @@ import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class VeiculoView {
@@ -23,7 +22,7 @@ public class VeiculoView {
         Veiculo veiculo = null;
         String categoria;
 
-        int tipoVeiculo = ConsoleUIHelper.askChooseOption("Escolha o categoria do veiculo: "
+        int tipoVeiculo = ConsoleUIHelper.askChooseOption("Escolha a categoria do veículo: "
                 , "Moto", "Carro", "Caminhão");
 
         String fabricante = ConsoleUIHelper.askNoEmptyInput("Informe o fabricante: ", 2);
@@ -31,7 +30,7 @@ public class VeiculoView {
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
         Veiculo veiculoExistente = controller.veiculoExistente(placa);
         while (veiculoExistente != null){
-                System.out.println("Veiculo já cadastrado.");
+                System.out.println("Veículo já cadastrado.");
                 System.out.println("Informe uma nova placa.");
                 placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
                 veiculoExistente = controller.veiculoExistente(placa);
