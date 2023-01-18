@@ -84,7 +84,7 @@ public class Menu {
         "Opções:",
        "Cadastrar a agência onde o veículo será alugado/devolvido.",
         "Alterar a agência onde o veículo será alugado/devolvido.",
-        "Listar agências",
+        "Listar agências.",
         "Buscar uma agência por parte do logradouro.",
         "Voltar para o menu principal.");
 
@@ -122,7 +122,7 @@ public class Menu {
         "Opções:",
         "Cadastrar cliente.",
         "Alterar cliente.",
-        "Listar clientes",
+        "Listar clientes.",
         "Voltar para o menu principal.");
 
         switch (opcao) {

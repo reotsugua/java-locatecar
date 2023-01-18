@@ -23,4 +23,9 @@ public class ClienteController<T extends Cliente> {
         return clientes;
     }
 
+    public void editarCliente(int index, T cliente) {
+        clientes.remove(index);
+        clientes.add(index, (T) cliente);
+    }
+
 }
