@@ -8,8 +8,8 @@ public class Caminhao extends Veiculo {
             super();
         }
 
-    public Caminhao(String fabricante, String modelo, String placa) {
-        super(fabricante, modelo, placa);
+    public Caminhao(String tipoVeiculo, String fabricante, String modelo, String placa) {
+        super(tipoVeiculo, fabricante, modelo, placa);
     }
 
     @Override

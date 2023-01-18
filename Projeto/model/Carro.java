@@ -8,8 +8,8 @@ public class Carro extends Veiculo {
         super();
     }
 
-    public Carro(String fabricante, String modelo, String placa) {
-        super(fabricante, modelo, placa);
+    public Carro(String tipoVeiculo, String fabricante, String modelo, String placa) {
+        super(tipoVeiculo, fabricante, modelo, placa);
     }
 
     @Override
