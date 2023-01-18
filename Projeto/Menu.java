@@ -7,6 +7,7 @@ import java.util.Scanner;
 import Projeto.controller.VeiculoController;
 import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
+import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
 
 public class Menu {
@@ -14,6 +15,14 @@ public class Menu {
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
     VeiculoView veiculoView = new VeiculoView();
+
+    public static ClienteView clienteView;
+
+    public Menu() {
+        if(clienteView == null) {
+            clienteView = new ClienteView();
+        }
+    }
 
     public void menuPrincipal () throws IOException, ClassNotFoundException {
         ConsoleUIHelper.drawHeader("Menu Principal",80);
@@ -87,7 +96,7 @@ public class Menu {
         "Opções:",
        "Cadastrar a agência onde o veículo será alugado/devolvido.",
         "Alterar a agência onde o veículo será alugado/devolvido.",
-        "Listar agências",
+        "Listar agências.",
         "Buscar uma agência por parte do logradouro.",
         "Voltar para o menu principal.");
 
@@ -125,18 +134,18 @@ public class Menu {
         "Opções:",
         "Cadastrar cliente.",
         "Alterar cliente.",
-        "Listar clientes",
+        "Listar clientes.",
         "Voltar para o menu principal.");
 
         switch (opcao) {
             case 0:
-                sistema.cadastrarCliente();
+                clienteView.adicionarCliente();
                 break;
             case 1:
-                sistema.alterarCliente();
+                clienteView.editarCliente();
                 break;
             case 2:
-                sistema.listarClientes();
+                clienteView.listarClientes();
                 break;
             case 3:
                 menuPrincipal();

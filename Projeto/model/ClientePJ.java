@@ -22,11 +22,12 @@ public class ClientePJ extends Cliente {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ClientePJ clientePJ)) return false;
+        if (!super.equals(o)) return false;
         return getCnpj().equals(clientePJ.getCnpj());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getCnpj());
+        return Objects.hash(super.hashCode(), getCnpj());
     }
 }

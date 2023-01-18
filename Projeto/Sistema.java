@@ -203,6 +203,7 @@ public class Sistema {
 //
 
     // CLIENTES:
+    /*
     public void cadastrarCliente() {
         clienteView.adicionarCliente();
     }
@@ -214,6 +215,7 @@ public class Sistema {
     public void alterarCliente() {
         clienteView.editarCliente();
     }
+    */
 
     /*
     public Cliente buscarClientePorNome(String nome) {
