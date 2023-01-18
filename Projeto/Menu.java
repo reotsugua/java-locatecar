@@ -91,7 +91,7 @@ public class Menu {
         boolean continuar = true;
         // Reinserir opcao de buscar por nome ou endereco dentro da listagem de agencias (submenu)
         while (continuar){
-        ConsoleUIHelper.drawHeader("Gestão de Agencias",80);
+        ConsoleUIHelper.drawHeader("Gestão de Agências",80);
         int opcao = ConsoleUIHelper.askChooseOption(
         "Opções:",
        "Cadastrar a agência onde o veículo será alugado/devolvido.",
