@@ -22,7 +22,12 @@ public class ClienteView {
 
     public void adicionarCliente() {
         Cliente cliente = getCliente();
-        controller.adicionarCliente(cliente);
+
+        String mensagem = controller.adicionarCliente(cliente)
+                ? "\nCliente cadastrado com sucesso!"
+                : "\nOops! Já existe um cliente cadastrado com o documento informado!";
+        System.out.println(mensagem);
+
     }
 
     public void listarClientes() {
@@ -51,7 +56,10 @@ public class ClienteView {
                 , "Não");
 
         if(confirma) {
-            controller.editarCliente(index, clienteEditado);
+            String mensagem = controller.editarCliente(index, clienteEditado)
+                    ? "\nCliente alterado com sucesso!"
+                    : "\nOops! Já existe um cliente cadastrado com o documento informado!";
+            System.out.println(mensagem);
         }
     }
 

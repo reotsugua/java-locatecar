@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="34951b61-4c5e-4e9c-8aaa-48cc966cf62c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/Sistema.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/Sistema.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/controller/ClienteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/model/ClientePF.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/model/ClientePF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/model/ClientePJ.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/model/ClientePJ.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/view/ClienteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/ClienteView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673989982265</updated>
-      <workItem from="1673989984800" duration="13523000" />
+      <workItem from="1673989984800" duration="17061000" />
     </task>
     <servers />
   </component>

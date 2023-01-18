@@ -15,8 +15,12 @@ public class ClienteController<T extends Cliente> {
         }
     }
 
-    public void adicionarCliente(T cliente) {
-        clientes.add(cliente);
+    public boolean adicionarCliente(T cliente) {
+        if(!existe(cliente)) {
+            clientes.add(cliente);
+            return true;
+        }
+        return false;
     }
 
     public T listarCliente(int index) {
@@ -27,9 +31,17 @@ public class ClienteController<T extends Cliente> {
         return clientes;
     }
 
-    public void editarCliente(int index, T cliente) {
-        clientes.remove(index);
-        clientes.add(index, cliente);
+    public boolean editarCliente(int index, T cliente) {
+        if(!existe(cliente)) {
+            clientes.remove(index);
+            clientes.add(index, cliente);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean existe(T clienteNovo) {
+        return clientes.stream().anyMatch(cliente -> cliente.equals(clienteNovo));
     }
 
 }

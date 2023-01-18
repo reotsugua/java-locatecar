@@ -6,11 +6,20 @@ import java.util.Scanner;
 
 import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
+import Projeto.view.ClienteView;
 
 public class Menu {
     List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
+
+    public static ClienteView clienteView;
+
+    public Menu() {
+        if(clienteView == null) {
+            clienteView = new ClienteView();
+        }
+    }
 
     public void menuPrincipal () throws IOException, ClassNotFoundException {
         ConsoleUIHelper.drawHeader("Menu Principal",80);
@@ -127,13 +136,13 @@ public class Menu {
 
         switch (opcao) {
             case 0:
-                sistema.cadastrarCliente();
+                clienteView.adicionarCliente();
                 break;
             case 1:
-                sistema.alterarCliente();
+                clienteView.editarCliente();
                 break;
             case 2:
-                sistema.listarClientes();
+                clienteView.listarClientes();
                 break;
             case 3:
                 menuPrincipal();
