@@ -28,7 +28,14 @@ public class VeiculoView {
         String fabricante = ConsoleUIHelper.askNoEmptyInput("Informe o fabricante: ", 2);
         String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo: ", 2);
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+        Veiculo veiculoExistente = controller.veiculoExistente(placa);
+        while (veiculoExistente != null){
+                System.out.println("Veiculo já cadastrado.");
+                System.out.println("Informe uma nova placa.");
+                placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+                veiculoExistente = controller.veiculoExistente(placa);
 
+        }
 
         if (tipoVeiculo == 0) {
             String tipo = "Moto";
