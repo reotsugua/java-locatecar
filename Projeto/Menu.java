@@ -28,7 +28,7 @@ public class Menu {
                 "Gestão de Veículos.",
                 "Gestão de Agências.",
                 "Gestão de Clientes.",
-                "Gestão de Alguel/Devolução.",
+                "Gestão de Aluguel/Devolução.",
                 "Sair.");
 
         switch (opcao) {
