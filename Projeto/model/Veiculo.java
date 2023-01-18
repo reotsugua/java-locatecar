@@ -9,10 +9,10 @@ public abstract class Veiculo {
     }
 
     protected String fabricante;
-
+    protected String modelo;
     protected String placa;
 
-    protected String modelo;
+
 
     protected BigDecimal valorDiaria;
 
