@@ -8,7 +8,11 @@ public class Moto extends Veiculo {
             super();
         }
 
-        @Override
+    public Moto(String fabricante, String modelo, String placa) {
+        super(fabricante, modelo, placa);
+    }
+
+    @Override
         public BigDecimal getValorDiaria() {
             return new BigDecimal(100.0);
         }
