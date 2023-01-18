@@ -25,15 +25,4 @@ public class Cliente {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Cliente cliente)) return false;
-        return getNome().equals(cliente.getNome());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getNome());
-    }
 }
