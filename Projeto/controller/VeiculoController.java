@@ -30,14 +30,17 @@ public class VeiculoController <T extends Veiculo>{
         for (int i = 0; i < veiculos.size(); i++) {
             if (veiculos.get(i).getModelo().contains(modelo)){
                 veiculosEncontrados.add(veiculos.get(i));
+            }else {
+                System.out.println("Veículo não encontrado.");
             }
         }
         return veiculosEncontrados;
     }
     public Veiculo veiculoExistente(String placa){
         for ( Veiculo veiculoExistente: veiculos) {
-            if (placa.equals(veiculoExistente.getPlaca()))
+            if (placa.equals(veiculoExistente.getPlaca())) {
                 return veiculoExistente;
+            }
         }
         return null;
     }
