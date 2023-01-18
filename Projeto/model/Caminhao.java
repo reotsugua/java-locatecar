@@ -8,7 +8,11 @@ public class Caminhao extends Veiculo {
             super();
         }
 
-        @Override
+    public Caminhao(String fabricante, String modelo, String placa) {
+        super(fabricante, modelo, placa);
+    }
+
+    @Override
         public BigDecimal getValorDiaria() {
             return new BigDecimal(200.0);
         }

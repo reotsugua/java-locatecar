@@ -4,13 +4,16 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+import Projeto.controller.VeiculoController;
 import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
+import Projeto.view.VeiculoView;
 
 public class Menu {
     List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
+    VeiculoView veiculoView = new VeiculoView();
 
     public void menuPrincipal () throws IOException, ClassNotFoundException {
         ConsoleUIHelper.drawHeader("Menu Principal",80);
@@ -55,7 +58,7 @@ public class Menu {
         switch (opcao) {
             case 0:
                 System.out.println("Cadastrar veiculo");
-                //sistema.cadastrarVeiculo();
+                veiculoView.cadastrarVeiculo();
 
                 break;
             case 1:

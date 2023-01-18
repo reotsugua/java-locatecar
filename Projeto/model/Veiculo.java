@@ -8,6 +8,12 @@ public abstract class Veiculo {
         this.valorDiaria = getValorDiaria();
     }
 
+    public Veiculo(String fabricante, String modelo, String placa) {
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        this.placa = placa;
+    }
+
     protected String fabricante;
     protected String modelo;
     protected String placa;
