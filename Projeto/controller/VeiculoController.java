@@ -24,9 +24,22 @@ public class VeiculoController <T extends Veiculo>{
     }
 
     public void alterarVeiculo(){}
-    public void buscarVeiculo(){}
-
-
-
+    public List<Veiculo> pesquisarVeiculo(String modelo){
+        List<Veiculo> veiculosEncontrados = new ArrayList<>();
+        List<? extends Veiculo> veiculos = listarVeiculos();
+        for (int i = 0; i < veiculos.size(); i++) {
+            if (veiculos.get(i).getModelo().contains(modelo)){
+                veiculosEncontrados.add(veiculos.get(i));
+            }
+        }
+        return veiculosEncontrados;
+    }
+    public Veiculo veiculoExistente(String placa){
+        for ( Veiculo veiculoExistente: veiculos) {
+            if (placa.equals(veiculoExistente.getPlaca()))
+                return veiculoExistente;
+        }
+        return null;
+    }
 
 }

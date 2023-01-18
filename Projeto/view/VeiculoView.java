@@ -5,6 +5,7 @@ import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VeiculoView {
@@ -20,23 +21,31 @@ public class VeiculoView {
     public void cadastrarVeiculo() {
 
         Veiculo veiculo = null;
+        String categoria;
 
-        int tipoVeiculo = ConsoleUIHelper.askChooseOption("Escolha o tipo do veiculo: "
+        int tipoVeiculo = ConsoleUIHelper.askChooseOption("Escolha o categoria do veiculo: "
                 , "Moto", "Carro", "Caminhão");
 
         String fabricante = ConsoleUIHelper.askNoEmptyInput("Informe o fabricante: ", 2);
         String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo: ", 2);
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+        Veiculo veiculoExistente = controller.veiculoExistente(placa);
+        while (veiculoExistente != null){
+                System.out.println("Veiculo já cadastrado.");
+                System.out.println("Informe uma nova placa.");
+                placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+                veiculoExistente = controller.veiculoExistente(placa);
+        }
 
         if (tipoVeiculo == 0) {
-            String tipo = "Moto";
-            veiculo = new Moto(tipo, fabricante, modelo, placa);
+            categoria = "Moto";
+            veiculo = new Moto(categoria, fabricante, modelo, placa);
         } else if (tipoVeiculo == 1) {
-            String tipo = "Carro";
-            veiculo = new Carro(tipo, fabricante, modelo, placa);
+            categoria = "Carro";
+            veiculo = new Carro(categoria, fabricante, modelo, placa);
         } else if (tipoVeiculo == 2) {
-            String tipo = "Caminhão";
-            veiculo = new Caminhao(tipo, fabricante, modelo, placa);
+            categoria = "Caminhão";
+            veiculo = new Caminhao(categoria, fabricante, modelo, placa);
         }
         controller.cadastrarVeiculo(veiculo);
     }
@@ -68,6 +77,15 @@ public class VeiculoView {
             }
         }
     }
+    public void pesquisarVeiculo(){
+        String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo do veiculo: ", 2);
+        List<Veiculo> veiculosEncontrados = controller.pesquisarVeiculo(modelo);
+        for (Veiculo veiculo: veiculosEncontrados) {
+            System.out.println(veiculo);
+        }
+
+    }
+
 }
 
 
