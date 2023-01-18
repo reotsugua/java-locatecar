@@ -63,7 +63,7 @@ public class Menu {
                 break;
             case 1:
                 System.out.println("Alterar veiculo");
-                //sistema.alterarVeiculo("tipo", "nome","agencia");
+                veiculoView.alterarVeiculo();
                 break;
             case 2:
                 System.out.println("Buscar veiculo");

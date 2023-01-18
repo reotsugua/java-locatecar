@@ -5,6 +5,8 @@ import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
+import java.util.List;
+
 public class VeiculoView {
 
     private static VeiculoController controller;
@@ -27,17 +29,45 @@ public class VeiculoView {
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
 
         if (tipoVeiculo == 0) {
-            veiculo = new Moto(fabricante, modelo, placa);
+            String tipo = "Moto";
+            veiculo = new Moto(tipo, fabricante, modelo, placa);
         } else if (tipoVeiculo == 1) {
-            veiculo = new Carro(fabricante, modelo, placa);
+            String tipo = "Carro";
+            veiculo = new Carro(tipo, fabricante, modelo, placa);
         } else if (tipoVeiculo == 2) {
-            veiculo = new Caminhao(fabricante, modelo, placa);
+            String tipo = "Caminhão";
+            veiculo = new Caminhao(tipo, fabricante, modelo, placa);
         }
         controller.cadastrarVeiculo(veiculo);
-
     }
 
+    public void listarVeiculos() {
+        List<? extends Veiculo> veiculos = controller.listarVeiculos();
 
+        for(int i = 0; i < veiculos.size(); i++) {
+            System.out.println("[" + (i+1) + "] " + veiculos.get(i));
+        }
+    }
+
+    public void alterarVeiculo() {
+
+        listarVeiculos();
+
+        List<? extends Veiculo> veiculos = controller.listarVeiculos();
+
+        String escolha = ConsoleUIHelper.askNoEmptyInput("Selecione o veículo através do índice.", 2);
+
+        for (int i = 0; i < veiculos.size(); i++) {
+            if (Integer.valueOf(escolha) == (i+1)) {
+                System.out.println("Veículo selecionado:");
+                System.out.println("[" + (i+1) + "] " + veiculos.get(i));
+                veiculos.remove(i);
+                cadastrarVeiculo();
+                System.out.println(veiculos.get(i));
+                System.out.println("Veículo alterado com sucesso!");
+            }
+        }
+    }
 }
 
 
