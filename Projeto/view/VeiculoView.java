@@ -5,6 +5,7 @@ import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class VeiculoView {
@@ -27,6 +28,7 @@ public class VeiculoView {
         String fabricante = ConsoleUIHelper.askNoEmptyInput("Informe o fabricante: ", 2);
         String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo: ", 2);
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+
 
         if (tipoVeiculo == 0) {
             String tipo = "Moto";
@@ -68,6 +70,15 @@ public class VeiculoView {
             }
         }
     }
+    public void pesquisarVeiculo(){
+        String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo do veiculo: ", 2);
+        List<Veiculo> veiculosEncontrados = controller.pesquisarVeiculo(modelo);
+        for (Veiculo veiculo: veiculosEncontrados) {
+            System.out.println(veiculo);
+        }
+
+    }
+
 }
 
 
