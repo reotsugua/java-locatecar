@@ -35,7 +35,6 @@ public class ClienteView {
 
     public void editarCliente() {
         List<? extends Cliente> clientes = controller.listarClientes();
-        Cliente cliente;
 
         System.out.println("Informe o index do cliente que deseja alterar:");
         this.listarClientes();
@@ -43,8 +42,17 @@ public class ClienteView {
         Scanner sc = new Scanner(System.in);
         int index = sc.nextInt();
 
-        cliente = getCliente();
-        controller.editarCliente(index, cliente);
+        Cliente clienteEditado;
+        clienteEditado = getCliente();
+
+        Cliente cliente = controller.listarCliente(index);
+        boolean confirma = ConsoleUIHelper.askConfirm("Realmente deseja alterar as informações do contato " + cliente.getNome() + "?"
+                , "Sim"
+                , "Não");
+
+        if(confirma) {
+            controller.editarCliente(index, clienteEditado);
+        }
     }
 
     public Cliente getCliente() {

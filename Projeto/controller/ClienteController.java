@@ -19,6 +19,10 @@ public class ClienteController<T extends Cliente> {
         clientes.add(cliente);
     }
 
+    public T listarCliente(int index) {
+        return clientes.get(index);
+    }
+
     public List<T> listarClientes() {
         return clientes;
     }
