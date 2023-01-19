@@ -6,7 +6,7 @@ import Projeto.model.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VeiculoController <T extends Veiculo>{
+public class VeiculoController <T extends Veiculo> {
     private List<T> veiculos;
 
     public VeiculoController() {
@@ -24,7 +24,7 @@ public class VeiculoController <T extends Veiculo>{
     }
 
     public void alterarVeiculo(){}
-    public List<Veiculo> pesquisarVeiculo(String modelo){
+    public List<Veiculo> pesquisarVeiculo(String modelo) {
         List<Veiculo> veiculosEncontrados = new ArrayList<>();
         List<? extends Veiculo> veiculos = listarVeiculos();
         for (int i = 0; i < veiculos.size(); i++) {
@@ -43,6 +43,12 @@ public class VeiculoController <T extends Veiculo>{
             }
         }
         return null;
+    }
+
+    public List<T> veiculosPorAgencia(int agencia) {
+        List<T> veiculosPorAgencia =
+                veiculos.stream().filter( veiculo -> veiculo.getAgencia() == agencia).toList();
+        return veiculosPorAgencia;
     }
 
 }

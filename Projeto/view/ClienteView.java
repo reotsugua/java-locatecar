@@ -29,8 +29,12 @@ public class ClienteView {
     public void listarClientes() {
         List<? extends Cliente> clientes = controller.listarClientes();
 
-        for(int i = 0; i < clientes.size(); i++) {
-            System.out.printf("%d - %s%n", i, clientes.get(i).getNome());
+        if(clientes.size() != 0) {
+            for (int i = 0; i < clientes.size(); i++) {
+                System.out.printf("%d - %s%n", i, clientes.get(i).getNome());
+            }
+        } else {
+            System.out.println("Oops! Não há clientes cadastrados.");
         }
     }
 

@@ -33,8 +33,8 @@ public class AgenciaController{
         }
         return agenciasEncontradas;
     }
-    public Agencia agenciaExistente(String nome){
-        for ( Agencia agenciaExistente: agencias) {
+    public Agencia agenciaExistente(String nome) {
+        for (Agencia agenciaExistente: agencias) {
             if (nome.equals(agenciaExistente.getNome()))
                 return agenciaExistente;
         }

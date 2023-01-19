@@ -23,6 +23,7 @@ public class AgenciaView {
         String endereco = ConsoleUIHelper.askNoEmptyInput("Informe o endereço da agência: ", 2);
 
         Agencia agenciaExistente = controller.agenciaExistente(nome);
+
         while (agenciaExistente != null){
             System.out.println("Agência já cadastrada.");
             nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome da agência: ", 2);
@@ -36,7 +37,7 @@ public class AgenciaView {
     public void listarAgencias() {
         List<Agencia> agencias = controller.listarAgencias();
 
-        if(agencias != null) {
+        if(agencias.size() != 0) {
             for (int i = 0; i < agencias.size(); i++) {
                 System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
             }
@@ -51,17 +52,17 @@ public class AgenciaView {
 
         List<Agencia> agencias = controller.listarAgencias();
 
-        String escolha = ConsoleUIHelper.askNoEmptyInput("Selecione a agência através do índice.", 2);
+        String escolha = ConsoleUIHelper.askNoEmptyInput("Informe o index da agência que deseja alterar:", 2);
 
         for (int i = 0; i < agencias.size(); i++) {
-            //if (Integer.valueOf(escolha) == (i+1)) {
+            if (Integer.valueOf(escolha) == i) {
                 System.out.println("Agência selecionada:");
-                System.out.println("[" + (i) + "] " + agencias.get(i));
+                System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
                 agencias.remove(i);
                 cadastrarAgencia();
-                System.out.println(agencias.get(i));
+                System.out.println(agencias.get(i).getNome());
                 System.out.println("Agência alterada com sucesso!");
-            //}
+            }
         }
     }
     public void pesquisarAgencia(){

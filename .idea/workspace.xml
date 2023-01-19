@@ -8,7 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/controller/AgenciaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/controller/AgenciaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/controller/VeiculoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/view/AgenciaView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/AgenciaView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/view/ClienteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/ClienteView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/view/VeiculoView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/VeiculoView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +43,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documentos/Workspace/LocateCar-SantanderCoders&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,5 +101,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Projeto/view/ClienteView.java</url>
+          <line>28</line>
+          <properties class="Projeto.view.ClienteView" method="listarClientes">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

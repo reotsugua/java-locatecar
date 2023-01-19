@@ -28,8 +28,10 @@ public class VeiculoView {
         Veiculo veiculo = null;
         String categoria;
 
-        int agencia = ConsoleUIHelper.askInt("Informe o index da agência em que deseja cadastrar o veículo: ");
+        System.out.println("Agências:");
         agenciaView.listarAgencias();
+
+        int agencia = ConsoleUIHelper.askInt("Informe o index da agência em que deseja cadastrar o veículo: ");
 
         //implementar serializable na controller e no model
 
@@ -75,7 +77,7 @@ public class VeiculoView {
         List<? extends Veiculo> veiculos = controller.listarVeiculos();
 
         for(int i = 0; i < veiculos.size(); i++) {
-            System.out.println("[" + (i+1) + "] " + veiculos.get(i));
+            System.out.println("[" + (i+1) + "] " + veiculos.get(i).toString());
         }
     }
 
@@ -88,12 +90,12 @@ public class VeiculoView {
         String escolha = ConsoleUIHelper.askNoEmptyInput("Selecione o veículo através do índice.", 2);
 
         for (int i = 0; i < veiculos.size(); i++) {
-            if (Integer.valueOf(escolha) == (i+1)) {
+            if (Integer.valueOf(escolha) == i) {
                 System.out.println("Veículo selecionado:");
-                System.out.println("[" + (i+1) + "] " + veiculos.get(i));
+                System.out.println("[" + (i) + "] " + veiculos.get(i).toString());
                 veiculos.remove(i);
                 cadastrarVeiculo();
-                System.out.println(veiculos.get(i));
+                System.out.println(veiculos.get(i).toString());
                 System.out.println("Veículo alterado com sucesso!");
             }
         }
