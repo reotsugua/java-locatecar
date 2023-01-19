@@ -54,7 +54,7 @@ public class ClienteController<T extends Cliente> {
 
     public boolean verificaPadrao(T cliente) {
         boolean retorno = false;
-        
+
         if(cliente instanceof ClientePF) {
             if (((ClientePF) cliente).getCpf().matches("\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d")
                     || ((ClientePF) cliente).getCpf().matches("\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d"))
