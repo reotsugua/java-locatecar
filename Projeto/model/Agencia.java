@@ -8,9 +8,6 @@ public class Agencia {
 
     private List<Veiculo> inventario;
 
-    public Agencia() {
-    }
-
     public Agencia(String nome, String endereco) {
         this.nome = nome;
         this.endereco = endereco;

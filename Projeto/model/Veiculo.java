@@ -11,7 +11,7 @@ public abstract class Veiculo {
     protected int agencia;
     //protected Agencia agencia;
     protected BigDecimal valorDiaria;
-    protected boolean alugado;
+    protected boolean disponivel;
 
     public Veiculo() {
         this.valorDiaria = getValorDiaria();
@@ -22,6 +22,7 @@ public abstract class Veiculo {
         this.fabricante = fabricante;
         this.modelo = modelo;
         this.placa = placa;
+        this.disponivel = true;
     }
 
     /*public Veiculo(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {
@@ -73,12 +74,12 @@ public abstract class Veiculo {
 
     public abstract BigDecimal getValorDiaria();
 
-    public boolean isAlugado() {
-        return alugado;
+    public boolean estaDisponivel() {
+        return disponivel;
     }
 
-    public void setAlugado(boolean disponivel) {
-        alugado = disponivel;
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 
     public String getTipoVeiculo() {
