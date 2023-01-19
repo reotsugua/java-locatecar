@@ -24,7 +24,6 @@ public class VeiculoController <T extends Veiculo> {
         return veiculos;
     }
 
-    public void alterarVeiculo(){}
     public List<Veiculo> pesquisarVeiculo(String modelo) {
         List<Veiculo> veiculosEncontrados = new ArrayList<>();
         List<? extends Veiculo> veiculos = listarVeiculos();
