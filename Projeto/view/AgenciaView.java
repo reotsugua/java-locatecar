@@ -34,10 +34,14 @@ public class AgenciaView {
     }
 
     public void listarAgencias() {
-        List<? extends Agencia> agencias = controller.listarAgencias();
+        List<Agencia> agencias = controller.listarAgencias();
 
-        for(int i = 0; i < agencias.size(); i++) {
-            System.out.println("[" + (i+1) + "] " + agencias.get(i));
+        if(agencias != null) {
+            for (int i = 0; i < agencias.size(); i++) {
+                System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
+            }
+        } else {
+            System.out.println("Oops! Não há agências cadastradas.");
         }
     }
 
@@ -45,19 +49,19 @@ public class AgenciaView {
 
         listarAgencias();
 
-        List<? extends Agencia> agencias = controller.listarAgencias();
+        List<Agencia> agencias = controller.listarAgencias();
 
         String escolha = ConsoleUIHelper.askNoEmptyInput("Selecione a agência através do índice.", 2);
 
         for (int i = 0; i < agencias.size(); i++) {
-            if (Integer.valueOf(escolha) == (i+1)) {
+            //if (Integer.valueOf(escolha) == (i+1)) {
                 System.out.println("Agência selecionada:");
-                System.out.println("[" + (i+1) + "] " + agencias.get(i));
+                System.out.println("[" + (i) + "] " + agencias.get(i));
                 agencias.remove(i);
                 cadastrarAgencia();
                 System.out.println(agencias.get(i));
                 System.out.println("Agência alterada com sucesso!");
-            }
+            //}
         }
     }
     public void pesquisarAgencia(){

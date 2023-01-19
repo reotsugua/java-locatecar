@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class AgenciaController <T extends Agencia>{
-    private List<T> agencias;
+public class AgenciaController{
+    private List<Agencia> agencias;
 
     public AgenciaController() {
         if (agencias == null) {
@@ -15,11 +15,11 @@ public class AgenciaController <T extends Agencia>{
         }
     }
 
-    public void cadastrarAgencia(T agencia) {
+    public void cadastrarAgencia(Agencia agencia) {
         agencias.add(agencia);
     }
 
-    public List<T> listarAgencias() {
+    public List<Agencia> listarAgencias() {
         return agencias;
     }
 
