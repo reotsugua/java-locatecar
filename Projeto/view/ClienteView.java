@@ -22,11 +22,7 @@ public class ClienteView {
 
     public void adicionarCliente() {
         Cliente cliente = getCliente();
-
-        String mensagem = controller.adicionarCliente(cliente)
-                ? "\nCliente cadastrado com sucesso!"
-                : "\nOops! Já existe um cliente cadastrado com o documento informado!";
-        System.out.println(mensagem);
+        System.out.println("\n" + controller.adicionarCliente(cliente));
 
     }
 
@@ -51,15 +47,12 @@ public class ClienteView {
         clienteEditado = getCliente();
 
         Cliente cliente = controller.listarCliente(index);
-        boolean confirma = ConsoleUIHelper.askConfirm("Realmente deseja alterar as informações do contato " + cliente.getNome() + "?"
+        boolean confirma = ConsoleUIHelper.askConfirm("Realmente deseja alterar as informações do contato '" + cliente.getNome() + "'?"
                 , "Sim"
                 , "Não");
 
         if(confirma) {
-            String mensagem = controller.editarCliente(index, clienteEditado)
-                    ? "\nCliente alterado com sucesso!"
-                    : "\nOops! Já existe um cliente cadastrado com o documento informado!";
-            System.out.println(mensagem);
+            System.out.println("\n" + controller.editarCliente(index, clienteEditado));
         }
     }
 
@@ -72,11 +65,11 @@ public class ClienteView {
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome do cliente: ", 2);
 
         if (tipoCliente == 0) {
-            String cpf = ConsoleUIHelper.askNoEmptyInput("Informe o CPF do cliente: ", 0);
+            String cpf = ConsoleUIHelper.askNoEmptyInput("Informe o CPF do cliente (somente números): ", 0);
 
             cliente = new ClientePF(nome, cpf);
         } else {
-            String cnpj = ConsoleUIHelper.askNoEmptyInput("Informe o CNPJ do cliente: ", 0);
+            String cnpj = ConsoleUIHelper.askNoEmptyInput("Informe o CNPJ do cliente (somente números): ", 0);
 
             cliente = new ClientePJ(nome, cnpj);
         }
