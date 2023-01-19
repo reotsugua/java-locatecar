@@ -32,7 +32,7 @@ public class Menu {
     }
 
     public void menuPrincipal() throws IOException, ClassNotFoundException {
-        ConsoleUIHelper.clearScreen();
+        //ConsoleUIHelper.clearScreen();
         ConsoleUIHelper.drawHeader("Menu Principal", 80);
         int opcao = ConsoleUIHelper.askChooseOption(
                 "Digite a opção desejada:",
@@ -81,11 +81,11 @@ public class Menu {
                     veiculoView.cadastrarVeiculo();
                     break;
                 case 1:
-                    System.out.println("Alterar veiculo");
+                    //System.out.println("Alterar veiculo");
                     veiculoView.alterarVeiculo();
                     break;
                 case 2:
-                    System.out.println("Buscar veiculo");
+                    //System.out.println("Buscar veiculo");
                     veiculoView.pesquisarVeiculo();
                     break;
                 case 3:
