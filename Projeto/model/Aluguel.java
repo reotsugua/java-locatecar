@@ -4,7 +4,7 @@ import Projeto.view.ClienteView;
 
 import java.time.LocalDateTime;
 
-public class Aluguel implements Locacao{
+public class Aluguel{
     //Atributos
     private Agencia agencia;
     private Veiculo veiculo;
@@ -20,37 +20,6 @@ public class Aluguel implements Locacao{
         this.cliente = cliente;
         this.dataHoraInicio = dataHoraInicio;
         this.dataHoraFim = dataHoraFim;
-    }
-
-    //Métodos Públicos
-    @Override
-    public void alugarVeiculoPF() {
-
-    }
-
-    @Override
-    public void devolverVeiculoPF() {
-
-    }
-
-    @Override
-    public void alugarVeiculoPJ() {
-
-    }
-
-    @Override
-    public void devolverVeiculoPJ() {
-
-    }
-
-    @Override
-    public void gerarComprovanteAluguel() {
-
-    }
-
-    @Override
-    public void gerarComprovanteDevolucao() {
-
     }
 
     //Métodos Especiais
