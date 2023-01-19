@@ -23,11 +23,11 @@ public class AgenciaController{
         return agencias;
     }
 
-    public List<Agencia> pesquisarAgencia(String nome){
+    public List<Agencia> pesquisarAgencia(String nomeOuLogradouro){
         List<Agencia> agenciasEncontradas = new ArrayList<>();
         List<? extends Agencia> agencias = listarAgencias();
         for (int i = 0; i < agencias.size(); i++) {
-            if (agencias.get(i).getNome().contains(nome)){
+            if (agencias.get(i).getNome().contains(nomeOuLogradouro) || agencias.get(i).getEndereco().contains(nomeOuLogradouro)){
                 agenciasEncontradas.add(agencias.get(i));
             }
         }

@@ -6,8 +6,9 @@ import Projeto.util.ConsoleUIHelper;
 
 import java.util.List;
 
-public class AgenciaView {
+public class AgenciaView extends Agencia{
     private static AgenciaController controller;
+
 
     public AgenciaView() {
         if (controller == null) {
@@ -65,9 +66,10 @@ public class AgenciaView {
             }
         }
     }
+
     public void pesquisarAgencia(){
-        String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome da agência: ", 2);
-        List<Agencia> agenciasEncontradas = controller.pesquisarAgencia(nome);
+        String nomeOuLogradouro = ConsoleUIHelper.askNoEmptyInput("Informe o nome ou logradouro da agência : ", 2);
+        List<Agencia> agenciasEncontradas = controller.pesquisarAgencia(nomeOuLogradouro);
         for (Agencia agencia: agenciasEncontradas) {
             System.out.println(agencia);
         }

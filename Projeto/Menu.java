@@ -114,7 +114,7 @@ public class Menu {
                     "Cadastrar a agência onde o veículo será alugado/devolvido.",
                     "Alterar a agência onde o veículo será alugado/devolvido.",
                     "Listar agências.",
-                    "Buscar uma agência por parte do logradouro.",
+                    "Buscar uma agência por parte nome ou logradouro.",
                     "Voltar para o menu principal.");
 
             switch (opcao) {
