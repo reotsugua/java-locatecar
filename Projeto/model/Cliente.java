@@ -2,7 +2,7 @@ package Projeto.model;
 
 import java.util.Objects;
 
-public class Cliente {
+public abstract class Cliente {
 
     private String nome;
 

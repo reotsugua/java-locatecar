@@ -12,6 +12,10 @@ public class Carro extends Veiculo {
         super(tipoVeiculo, fabricante, modelo, placa);
     }
 
+    /*public Carro(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {
+        super(tipoVeiculo, fabricante, modelo, placa, agencia);
+    }*/
+
     @Override
     public BigDecimal getValorDiaria() {
         return new BigDecimal(150.0);

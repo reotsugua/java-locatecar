@@ -30,7 +30,7 @@ Criar uma aplicação que gerencie o aluguel de veículos, onde cada item abaixo
 - Gerar um comprovante com todos os dados da devolução (aberto para o grupo decidir o que vai ser demonstrado);
 ## Itens bônus
 - Paginar as listas envolvidas;
-Os dados deverão ser gravados em arquivos, simulando uma base de dados;
+- Os dados deverão ser gravados em arquivos, simulando uma base de dados;
 
 ## Regras de negócio
 - RN1: Os veículos não podem ser repetidos;
