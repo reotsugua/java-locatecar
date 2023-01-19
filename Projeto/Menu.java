@@ -14,13 +14,14 @@ import Projeto.view.VeiculoView;
 public class Menu {
     public static ClienteView clienteView;
     public static AgenciaView agenciaView;
+    public static VeiculoView veiculoView;
     /*
     List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
     */
 
-    VeiculoView veiculoView = new VeiculoView();
+    //VeiculoView veiculoView = new VeiculoView();
 
     public Menu() {
         if (clienteView == null) {
@@ -29,6 +30,10 @@ public class Menu {
         if (agenciaView == null) {
             agenciaView = new AgenciaView();
         }
+        if (veiculoView == null) {
+            veiculoView = new VeiculoView();
+        }
+
     }
 
     public void menuPrincipal() throws IOException, ClassNotFoundException {

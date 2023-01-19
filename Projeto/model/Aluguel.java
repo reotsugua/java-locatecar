@@ -1,44 +1,49 @@
 package Projeto.model;
 
+import Projeto.view.ClienteView;
+
 import java.time.LocalDateTime;
 
 public class Aluguel {
-    private String veiculo;
-    private String cliente;
-    private String agencia;
+    private Agencia agencia;
+    private Veiculo veiculo;
+    private Cliente cliente;
+
     private LocalDateTime dataHoraInicio;
     private LocalDateTime dataHoraFim;
     private double valor;
 
-    public Aluguel(String veiculo, String cliente, String agencia, LocalDateTime dataHoraInicio) {
-        this.veiculo = veiculo;
-        this.cliente = cliente;
+
+    public Aluguel(Agencia agencia, Veiculo veiculo, Cliente cliente, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim) {
         this.agencia = agencia;
-        this.dataHoraInicio = dataHoraInicio;
-    }
-
-    public String getVeiculo() {
-        return veiculo;
-    }
-
-    public void setVeiculo(String veiculo) {
         this.veiculo = veiculo;
-    }
-
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
         this.cliente = cliente;
+        this.dataHoraInicio = dataHoraInicio;
+        this.dataHoraFim = dataHoraFim;
     }
 
-    public String getAgencia() {
+    public Agencia getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(String agencia) {
+    public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
+    }
+
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public LocalDateTime getDataHoraInicio() {
