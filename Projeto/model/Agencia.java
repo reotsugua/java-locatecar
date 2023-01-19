@@ -32,4 +32,11 @@ public class Agencia {
         this.endereco = endereco;
     }
 
+    @Override
+    public String toString() {
+        return "AGÊNCIA =" +
+                " | NOME = " + nome.toUpperCase() +
+                " | ENDEREÇO = " + endereco.toUpperCase();
+
+    }
 }
