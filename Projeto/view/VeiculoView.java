@@ -77,7 +77,7 @@ public class VeiculoView {
         List<? extends Veiculo> veiculos = controller.listarVeiculos();
 
         for(int i = 0; i < veiculos.size(); i++) {
-            System.out.println("[" + (i+1) + "] " + veiculos.get(i).toString());
+            System.out.println("[" + (i) + "] " + veiculos.get(i).toString());
         }
     }
 

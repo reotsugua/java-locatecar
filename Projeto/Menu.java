@@ -14,9 +14,12 @@ import Projeto.view.VeiculoView;
 public class Menu {
     public static ClienteView clienteView;
     public static AgenciaView agenciaView;
+    /*
     List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
     Sistema sistema = new Sistema();
+    */
+
     VeiculoView veiculoView = new VeiculoView();
 
     public Menu() {
@@ -29,6 +32,7 @@ public class Menu {
     }
 
     public void menuPrincipal() throws IOException, ClassNotFoundException {
+        ConsoleUIHelper.clearScreen();
         ConsoleUIHelper.drawHeader("Menu Principal", 80);
         int opcao = ConsoleUIHelper.askChooseOption(
                 "Digite a opção desejada:",
@@ -60,33 +64,38 @@ public class Menu {
     }
 
     public void menuVeiculos() throws IOException, ClassNotFoundException {
-        ConsoleUIHelper.drawHeader("Gestão de Veículos", 80);
-        int opcao = ConsoleUIHelper.askChooseOption(
-                "Opções:",
-                "Cadastrar veículos.",
-                "Alterar um veículo cadastrado.",
-                "Buscar veículo por parte do nome.",
-                "Voltar para o menu principal.");
+        boolean continuar = true;
 
-        switch (opcao) {
-            case 0:
-                //System.out.println("Cadastrar veiculo");
-                veiculoView.cadastrarVeiculo();
-                break;
-            case 1:
-                System.out.println("Alterar veiculo");
-                veiculoView.alterarVeiculo();
-                break;
-            case 2:
-                System.out.println("Buscar veiculo");
-                veiculoView.pesquisarVeiculo();
-                break;
-            case 3:
-                menuPrincipal();
-                break;
-            default:
-                System.out.println("Opção inválida!");
-                break;
+        while (continuar) {
+            ConsoleUIHelper.drawHeader("Gestão de Veículos", 80);
+            int opcao = ConsoleUIHelper.askChooseOption(
+                    "Opções:",
+                    "Cadastrar veículos.",
+                    "Alterar um veículo cadastrado.",
+                    "Buscar veículo por parte do nome.",
+                    "Voltar para o menu principal.");
+
+            switch (opcao) {
+                case 0:
+                    //System.out.println("Cadastrar veiculo");
+                    veiculoView.cadastrarVeiculo();
+                    break;
+                case 1:
+                    System.out.println("Alterar veiculo");
+                    veiculoView.alterarVeiculo();
+                    break;
+                case 2:
+                    System.out.println("Buscar veiculo");
+                    veiculoView.pesquisarVeiculo();
+                    break;
+                case 3:
+                    continuar = false;
+                    menuPrincipal();
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
         }
     }
 
@@ -175,28 +184,33 @@ public class Menu {
     }
 
     public void menuAlguelDevolucao() throws IOException, ClassNotFoundException {
-        ConsoleUIHelper.drawHeader("Gestão de Alugueis", 80);
-        int opcao = ConsoleUIHelper.askChooseOption(
-                "Opções:",
-                "Alugar um veículo para pessoa fisica/juridica.",
-                "Devolver um veículo para pessoa fisica/juridica.",
-                "Voltar para o menu principal.");
+        boolean continuar = true;
 
-        switch (opcao) {
-            case 0:
-                System.out.println("Alugar veiculo");
-                //sistema.alugarVeiculo("veiculo", "cliente", "agencia", LocalDateTime.of(2023, 01, 13, 14, 22));
-                break;
-            case 1:
-                System.out.println("Devolver veiculo");
-                //sistema.devolverVeiculo("veiculo", LocalDateTime.of(2023, 02, 13, 18, 22));
-                break;
-            case 2:
-                menuPrincipal();
-                break;
-            default:
-                System.out.println("Opção inválida!");
-                break;
+        while (continuar) {
+            ConsoleUIHelper.drawHeader("Gestão de Alugueis", 80);
+            int opcao = ConsoleUIHelper.askChooseOption(
+                    "Opções:",
+                    "Alugar um veículo para pessoa fisica/juridica.",
+                    "Devolver um veículo para pessoa fisica/juridica.",
+                    "Voltar para o menu principal.");
+
+            switch (opcao) {
+                case 0:
+                    System.out.println("Alugar veiculo");
+                    //sistema.alugarVeiculo("veiculo", "cliente", "agencia", LocalDateTime.of(2023, 01, 13, 14, 22));
+                    break;
+                case 1:
+                    System.out.println("Devolver veiculo");
+                    //sistema.devolverVeiculo("veiculo", LocalDateTime.of(2023, 02, 13, 18, 22));
+                    break;
+                case 2:
+                    continuar = false;
+                    menuPrincipal();
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
+            }
         }
     }
 
