@@ -1,7 +1,5 @@
 package Projeto.view;
 
-
-import Projeto.controller.AgenciaController;
 import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
@@ -23,8 +21,6 @@ public class VeiculoView {
     }
 
     public void cadastrarVeiculo() {
-        AgenciaController agenciaController = new AgenciaController();
-
         Veiculo veiculo = null;
         String categoria;
 
