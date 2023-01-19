@@ -68,7 +68,6 @@ public class Menu {
             case 0:
                 System.out.println("Cadastrar veiculo");
                 veiculoView.cadastrarVeiculo();
-
                 break;
             case 1:
                 System.out.println("Alterar veiculo");
@@ -140,7 +139,7 @@ public class Menu {
         switch (opcao) {
             case 0:
                 clienteView.adicionarCliente();
-                break;
+                this.menuClientes();
             case 1:
                 clienteView.editarCliente();
                 break;

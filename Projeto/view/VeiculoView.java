@@ -1,6 +1,7 @@
 package Projeto.view;
 
 
+import Projeto.controller.AgenciaController;
 import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
@@ -10,24 +11,50 @@ import java.util.List;
 public class VeiculoView {
 
     private static VeiculoController controller;
+    private static AgenciaView agenciaView;
 
     public VeiculoView() {
         if (controller == null) {
             controller = new VeiculoController();
         }
+        if(agenciaView == null) {
+            agenciaView = new AgenciaView();
+        }
     }
 
     public void cadastrarVeiculo() {
+        AgenciaController agenciaController = new AgenciaController();
 
         Veiculo veiculo = null;
         String categoria;
 
+        agenciaView.listarAgencias();
+        int agencia = ConsoleUIHelper.askInt("Selecione a agência desejada: ");
+
+        //implementar serializable na controller e no model
+
         int tipoVeiculo = ConsoleUIHelper.askChooseOption("Escolha a categoria do veículo: "
                 , "Moto", "Carro", "Caminhão");
+
+        switch (tipoVeiculo) {
+            case 0 -> {
+                veiculo = new Moto();
+                categoria = "Moto";
+            }
+            case 2 -> {
+                veiculo = new Caminhao();
+                categoria = "Caminhão";
+            }
+            default -> {
+                veiculo = new Carro();
+                categoria = "Carro";
+            }
+        }
 
         String fabricante = ConsoleUIHelper.askNoEmptyInput("Informe o fabricante: ", 2);
         String modelo = ConsoleUIHelper.askNoEmptyInput("Informe o modelo: ", 2);
         String placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+
         Veiculo veiculoExistente = controller.veiculoExistente(placa);
         while (veiculoExistente != null){
                 System.out.println("Veículo já cadastrado.");
@@ -35,17 +62,12 @@ public class VeiculoView {
                 placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
                 veiculoExistente = controller.veiculoExistente(placa);
         }
+        veiculo.setAgencia(agencia);
+        veiculo.setTipoVeiculo(categoria);
+        veiculo.setFabricante(fabricante);
+        veiculo.setModelo(modelo);
+        veiculo.setPlaca(placa);
 
-        if (tipoVeiculo == 0) {
-            categoria = "Moto";
-            veiculo = new Moto(categoria, fabricante, modelo, placa);
-        } else if (tipoVeiculo == 1) {
-            categoria = "Carro";
-            veiculo = new Carro(categoria, fabricante, modelo, placa);
-        } else if (tipoVeiculo == 2) {
-            categoria = "Caminhão";
-            veiculo = new Caminhao(categoria, fabricante, modelo, placa);
-        }
         controller.cadastrarVeiculo(veiculo);
     }
 

@@ -4,6 +4,14 @@ import java.math.BigDecimal;
 
 public abstract class Veiculo {
 
+    protected String tipoVeiculo;
+    protected String fabricante;
+    protected String modelo;
+    protected String placa;
+    protected int agencia;
+    protected BigDecimal valorDiaria;
+    protected boolean alugado;
+
     public Veiculo() {
         this.valorDiaria = getValorDiaria();
     }
@@ -15,16 +23,33 @@ public abstract class Veiculo {
         this.placa = placa;
     }
 
-    protected String tipoVeiculo;
-    protected String fabricante;
-    protected String modelo;
-    protected String placa;
+    public int getAgencia() {
+        return agencia;
+    }
 
+    public void setTipoVeiculo(String tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
 
+    public void setFabricante(String fabricante) {
+        this.fabricante = fabricante;
+    }
 
-    protected BigDecimal valorDiaria;
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
-    protected boolean alugado;
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public void setValorDiaria(BigDecimal valorDiaria) {
+        this.valorDiaria = valorDiaria;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
 
     public abstract BigDecimal getValorDiaria();
 
@@ -54,7 +79,7 @@ public abstract class Veiculo {
 
     @Override
     public String toString() {
-        return  "VEÍCULO = " + tipoVeiculo.toUpperCase() +
+        return "VEÍCULO = " + tipoVeiculo.toUpperCase() +
                 " | FABRICANTE = " + fabricante.toUpperCase() +
                 " | MODELO = " + modelo.toUpperCase() +
                 " | PLACA = " + placa.toUpperCase();
