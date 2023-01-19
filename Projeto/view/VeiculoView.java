@@ -28,8 +28,8 @@ public class VeiculoView {
         Veiculo veiculo = null;
         String categoria;
 
+        int agencia = ConsoleUIHelper.askInt("Informe o index da agência em que deseja cadastrar o veículo: ");
         agenciaView.listarAgencias();
-        int agencia = ConsoleUIHelper.askInt("Selecione a agência desejada: ");
 
         //implementar serializable na controller e no model
 

@@ -7,6 +7,7 @@ import java.util.Scanner;
 import Projeto.controller.VeiculoController;
 import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
+import Projeto.view.AgenciaView;
 import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
 
@@ -17,10 +18,14 @@ public class Menu {
     VeiculoView veiculoView = new VeiculoView();
 
     public static ClienteView clienteView;
+    public static AgenciaView agenciaView;
 
     public Menu() {
         if(clienteView == null) {
             clienteView = new ClienteView();
+        }
+        if(agenciaView == null) {
+            agenciaView = new AgenciaView();
         }
     }
 
@@ -66,7 +71,7 @@ public class Menu {
 
         switch (opcao) {
             case 0:
-                System.out.println("Cadastrar veiculo");
+                //System.out.println("Cadastrar veiculo");
                 veiculoView.cadastrarVeiculo();
                 break;
             case 1:
@@ -101,16 +106,24 @@ public class Menu {
 
         switch (opcao) {
             case 0:
+                /*
                 Agencia agencia = new Agencia();
                 agencia = sistema.cadastrarAgencia(agencia);
+                break;
+                 */
+                agenciaView.cadastrarAgencia();
                 break;
             case 1:
                 System.out.println("Alterar agencia");
                 //sistema.alterarAgencia("nome", "endereço");
                 break;
             case 2:
+                /*
                 System.out.println("Buscar Agencias");
                 sistema.listarAgencias();
+                break;
+                */
+                agenciaView.listarAgencias();
                 break;
             case 3:
                 System.out.println("buscar por endereco");
