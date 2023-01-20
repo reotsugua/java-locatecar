@@ -4,16 +4,13 @@ import Projeto.controller.AgenciaController;
 import Projeto.controller.AluguelController;
 import Projeto.controller.ClienteController;
 import Projeto.controller.VeiculoController;
-import Projeto.model.Agencia;
-import Projeto.model.Aluguel;
-import Projeto.model.Locacao;
-import Projeto.model.Veiculo;
+import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
 import java.util.List;
+import java.util.Scanner;
 
-import static Projeto.Menu.agenciaView;
-import static Projeto.Menu.veiculoView;
+import static Projeto.Menu.*;
 
 
 public class AluguelView implements Locacao {
@@ -57,6 +54,24 @@ public class AluguelView implements Locacao {
     public void escolhaVeiculo() {
 
         veiculoView.listarVeiculoPorAgencia(selecaoAgencia);
+
+    }
+
+    public static Cliente escolhaCliente() {
+
+        clienteView.adicionarCliente();
+
+        //List<? extends Cliente> clientes = clienteController.listarClientes();
+
+        System.out.println("Informe o index do cliente que deseja escolher:");
+        clienteView.listarClientes();
+
+        Scanner sc = new Scanner(System.in);
+        int index = sc.nextInt();
+
+        Cliente clienteEscolhido = clienteController.listarCliente(index);
+        return clienteEscolhido;
+
 
     }
 

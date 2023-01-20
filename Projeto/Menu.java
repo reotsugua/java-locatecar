@@ -13,6 +13,7 @@ import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
 
 import static Projeto.view.AluguelView.escolhaAgencia;
+import static Projeto.view.AluguelView.escolhaCliente;
 
 public class Menu {
     public static ClienteView clienteView;
@@ -215,6 +216,7 @@ public class Menu {
                     break;
                 case 1:
                     System.out.println("Devolver veiculo");
+                    escolhaCliente();
                     //sistema.devolverVeiculo("veiculo", LocalDateTime.of(2023, 02, 13, 18, 22));
                     break;
                 case 2:
