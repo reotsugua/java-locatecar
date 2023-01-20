@@ -12,6 +12,7 @@ public abstract class Veiculo {
     //protected Agencia agencia;
     protected BigDecimal valorDiaria;
     protected boolean alugado;
+    private boolean disponivel = true;
 
     public Veiculo() {
         this.valorDiaria = getValorDiaria();
@@ -74,6 +75,13 @@ public abstract class Veiculo {
 
     public abstract BigDecimal getValorDiaria();
 
+    public boolean estaDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
+    }
     public boolean isAlugado() {
         return alugado;
     }

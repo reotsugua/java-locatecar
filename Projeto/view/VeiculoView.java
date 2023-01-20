@@ -77,6 +77,14 @@ public class VeiculoView {
         }
     }
 
+    public void listarVeiculoPorAgencia(int agencia){
+        List<Veiculo> veiculos = controller.listarVeiculos();
+
+        veiculos.stream().filter(veiculo -> veiculo.getAgencia() == agencia).forEach(System.out::println);
+
+
+    }
+
     public void alterarVeiculo() {
 
         listarVeiculos();

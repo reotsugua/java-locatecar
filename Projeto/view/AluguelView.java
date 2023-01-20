@@ -21,6 +21,8 @@ public class AluguelView implements Locacao {
     private static VeiculoController veiculoController;
     private static ClienteController clienteController;
 
+    private static Integer selecaoAgencia;
+
     public AluguelView() {
         if (agenciaController == null) {
             agenciaController = new AgenciaController();
@@ -41,7 +43,7 @@ public class AluguelView implements Locacao {
         List<Agencia> agencias = agenciaController.listarAgencias();
 
         String escolhaAgencia = ConsoleUIHelper.askNoEmptyInput("Informe o indice da agência que deseja:", 2);
-
+        selecaoAgencia = Integer.parseInt(escolhaAgencia);
         for (int i = 0; i < agencias.size(); i++) {
             if (Integer.valueOf(escolhaAgencia) == i) {
                 System.out.println("Agência selecionada:");
@@ -50,6 +52,34 @@ public class AluguelView implements Locacao {
             }
         }
         return agenciaEscolhida;
+    }
+
+    public static Veiculo escolhaVeiculo() {
+        Veiculo veiculoEscolhido = null;
+
+        //veiculoView.listarVeiculos();
+        veiculoView.listarVeiculoPorAgencia(selecaoAgencia);
+
+
+        int escolhaVeiculo = ConsoleUIHelper.askInt("Selecione o veículo através do índice.");
+        List<? extends Veiculo> veiculos = veiculoController.veiculosPorAgencia((int) escolhaVeiculo);
+
+
+        for (int x = 0; x < veiculos.size(); x++) {
+            if (Integer.valueOf(escolhaVeiculo) == x) {
+                System.out.println("Veículo selecionado:");
+                System.out.println("[" + (x) + "] " + veiculos.get(x).toString());
+                veiculoEscolhido = veiculos.get(x);
+            }
+        }
+
+        if (veiculoEscolhido == null || !veiculoEscolhido.estaDisponivel()) {
+            System.out.println("Veículo não encontrado ou não disponível para aluguel.");
+            return null;
+        } else {
+            veiculoEscolhido.setDisponivel(false);
+            return veiculoEscolhido;
+        }
     }
 
 
