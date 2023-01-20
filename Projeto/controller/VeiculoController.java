@@ -1,9 +1,8 @@
 package Projeto.controller;
 
 
-import Projeto.model.Agencia;
-import Projeto.model.Veiculo;
 
+import Projeto.model.Veiculo;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +22,6 @@ public class VeiculoController <T extends Veiculo> {
     public List<T> listarVeiculos() {
         return veiculos;
     }
-
-    /*public List<T> listarVeiculosPorAgencia(Agencia agencia) {
-        List<Veiculo> veiculosAgencia;
-        veiculos.stream().filter(veiculo -> veiculo.getAgencia().);
-        return veiculos;
-    }*/
 
 
     public List<Veiculo> pesquisarVeiculo(String modelo) {
@@ -50,12 +43,6 @@ public class VeiculoController <T extends Veiculo> {
             }
         }
         return null;
-    }
-
-    public List<T> veiculosPorAgencia(int agencia) {
-        List<T> veiculosPorAgencia =
-                veiculos.stream().filter( veiculo -> veiculo.getAgencia() == agencia).toList();
-        return veiculosPorAgencia;
     }
 
 }

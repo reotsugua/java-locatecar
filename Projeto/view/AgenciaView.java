@@ -11,9 +11,6 @@ import java.util.List;
 public class AgenciaView extends Agencia{
     private static AgenciaController agenciaController;
 
-
-
-
     public AgenciaView() {
         if (agenciaController == null) {
             agenciaController = new AgenciaController();
@@ -38,6 +35,7 @@ public class AgenciaView extends Agencia{
         }
 
         agencia = new Agencia(nome, endereco);
+
         agenciaController.cadastrarAgencia(agencia);
 
 

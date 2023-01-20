@@ -1,7 +1,6 @@
 package Projeto.view;
 
 import Projeto.controller.AgenciaController;
-import Projeto.controller.AluguelController;
 import Projeto.controller.ClienteController;
 import Projeto.controller.VeiculoController;
 import Projeto.model.*;
@@ -61,8 +60,6 @@ public class AluguelView implements Locacao {
 
         clienteView.adicionarCliente();
 
-        //List<? extends Cliente> clientes = clienteController.listarClientes();
-
         System.out.println("Informe o index do cliente que deseja escolher:");
         clienteView.listarClientes();
 
@@ -77,9 +74,7 @@ public class AluguelView implements Locacao {
 
     //Métodos Públicos
     @Override
-    public void alugarVeiculoPF() {
-
-    }
+    public void alugarVeiculoPF() {}
 
     @Override
     public void devolverVeiculoPF() {

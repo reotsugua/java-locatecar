@@ -28,17 +28,6 @@ public class Agencia {
         return endereco;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public List<Veiculo> getInventario() {
-        return inventario;
-    }
-
-    public void setInventario(List<Veiculo> inventario) {
-        this.inventario = inventario;
-    }
 
     @Override
     public String toString() {

@@ -9,9 +9,8 @@ public abstract class Veiculo {
     protected String modelo;
     protected String placa;
     protected int agencia;
-    //protected Agencia agencia;
     protected BigDecimal valorDiaria;
-//    protected boolean alugado;
+
     private boolean disponivel = true;
 
     public Veiculo() {
@@ -27,24 +26,6 @@ public abstract class Veiculo {
     }
 
 
-    /*public Veiculo(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {
-        this.tipoVeiculo = tipoVeiculo;
-        this.fabricante = fabricante;
-        this.modelo = modelo;
-        this.placa = placa;
-        this.agencia = agencia;
-    }*/
-
-    //public int getAgencia() {        return agencia;}
-
-
-    /*public Agencia getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(String agencia) {
-        this.agencia = agencia;
-    }*/
 
     public int getAgencia() {
         return agencia;
@@ -83,13 +64,6 @@ public abstract class Veiculo {
     public void setDisponivel(boolean disponivel) {
         this.disponivel = disponivel;
     }
-//    public boolean getAlugado() {
-//        return alugado;
-//    }
-//
-//    public void setAlugado(boolean disponivel) {
-//        alugado = disponivel;
-//    }
 
     public String getTipoVeiculo() {
         return tipoVeiculo;
