@@ -1,5 +1,7 @@
 package Projeto.model;
 
+import Projeto.view.Veiculo;
+
 import java.util.List;
 
 public class Agencia {
@@ -7,6 +9,9 @@ public class Agencia {
     private String endereco;
 
     private List<Veiculo> inventario;
+
+    public Agencia() {
+    }
 
     public Agencia(String nome, String endereco) {
         this.nome = nome;

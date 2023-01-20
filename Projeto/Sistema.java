@@ -3,6 +3,7 @@ package Projeto;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 import Projeto.view.ClienteView;
+import Projeto.view.Veiculo;
 
 import java.util.ArrayList;
 import java.util.List;

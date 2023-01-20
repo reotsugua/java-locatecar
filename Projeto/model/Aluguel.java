@@ -1,25 +1,25 @@
 package Projeto.model;
 
-import Projeto.view.ClienteView;
+import Projeto.view.Veiculo;
 
 import java.time.LocalDateTime;
 
 public class Aluguel{
     //Atributos
     private Agencia agencia;
-    private Veiculo veiculo;
+    private Projeto.view.Veiculo veiculo;
     private Cliente cliente;
-    private String dataInicio;
-    private int identificador;
-    private String dataFim;
+    private LocalDateTime dataHoraInicio;
+    private LocalDateTime dataHoraFim;
     private double valor;
 
     //Construtores
-    public Aluguel(Agencia agencia, Veiculo veiculo, Cliente cliente, String dataInicio) {
+    public Aluguel(Agencia agencia, Projeto.view.Veiculo veiculo, Cliente cliente, LocalDateTime dataHoraInicio, LocalDateTime dataHoraFim) {
         this.agencia = agencia;
         this.veiculo = veiculo;
         this.cliente = cliente;
-        this.dataInicio = dataInicio;
+        this.dataHoraInicio = dataHoraInicio;
+        this.dataHoraFim = dataHoraFim;
     }
 
     //Métodos Especiais
@@ -31,7 +31,7 @@ public class Aluguel{
         this.agencia = agencia;
     }
 
-    public Veiculo getVeiculo() {
+    public Projeto.view.Veiculo getVeiculo() {
         return veiculo;
     }
 
