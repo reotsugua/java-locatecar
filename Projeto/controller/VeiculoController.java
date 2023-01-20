@@ -24,6 +24,13 @@ public class VeiculoController <T extends Veiculo> {
         return veiculos;
     }
 
+    /*public List<T> listarVeiculosPorAgencia(Agencia agencia) {
+        List<Veiculo> veiculosAgencia;
+        veiculos.stream().filter(veiculo -> veiculo.getAgencia().);
+        return veiculos;
+    }*/
+
+
     public List<Veiculo> pesquisarVeiculo(String modelo) {
         List<Veiculo> veiculosEncontrados = new ArrayList<>();
         List<? extends Veiculo> veiculos = listarVeiculos();
