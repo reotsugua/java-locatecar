@@ -5,6 +5,7 @@ import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VeiculoView {
 
@@ -75,6 +76,22 @@ public class VeiculoView {
         for(int i = 0; i < veiculos.size(); i++) {
             System.out.println("[" + (i) + "] " + veiculos.get(i).toString());
         }
+    }
+
+    public void listarVeiculoPorAgencia(int agencia){
+        List<Veiculo> veiculos = controller.listarVeiculos();
+        List<Veiculo> veiculosFiltrados = veiculos.stream().filter(veiculo -> veiculo.getAgencia() == agencia).collect(Collectors.toList());
+        Veiculo veiculoSelecionado = null;
+        for (int i = 0; i < veiculosFiltrados.size(); i++) {
+
+            System.out.print("ID " + i+ " | " + veiculosFiltrados.get(i)+"\n");
+            veiculoSelecionado = veiculosFiltrados.get(i);
+        }
+        ConsoleUIHelper.askInt("Selecione o veículo através do índice.");
+
+        System.out.println(veiculoSelecionado);
+
+
     }
 
     public void alterarVeiculo() {

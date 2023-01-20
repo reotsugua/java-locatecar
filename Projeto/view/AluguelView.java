@@ -21,6 +21,8 @@ public class AluguelView implements Locacao {
     private static VeiculoController veiculoController;
     private static ClienteController clienteController;
 
+    private static Integer selecaoAgencia;
+
     public AluguelView() {
         if (agenciaController == null) {
             agenciaController = new AgenciaController();
@@ -41,7 +43,7 @@ public class AluguelView implements Locacao {
         List<Agencia> agencias = agenciaController.listarAgencias();
 
         String escolhaAgencia = ConsoleUIHelper.askNoEmptyInput("Informe o indice da agência que deseja:", 2);
-
+        selecaoAgencia = Integer.parseInt(escolhaAgencia);
         for (int i = 0; i < agencias.size(); i++) {
             if (Integer.valueOf(escolhaAgencia) == i) {
                 System.out.println("Agência selecionada:");
@@ -52,9 +54,11 @@ public class AluguelView implements Locacao {
         return agenciaEscolhida;
     }
 
+    public void escolhaVeiculo() {
 
+        veiculoView.listarVeiculoPorAgencia(selecaoAgencia);
 
-
+    }
 
     //Métodos Públicos
     @Override
