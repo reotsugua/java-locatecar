@@ -38,7 +38,6 @@ public class AgenciaView extends Agencia{
         }
 
         agencia = new Agencia(nome, endereco);
-        //agencia.setInventario();
         agenciaController.cadastrarAgencia(agencia);
 
 

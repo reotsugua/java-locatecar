@@ -54,37 +54,11 @@ public class AluguelView implements Locacao {
         return agenciaEscolhida;
     }
 
-    public static Veiculo escolhaVeiculo() {
-        Veiculo veiculoEscolhido = null;
+    public void escolhaVeiculo() {
 
-        //veiculoView.listarVeiculos();
         veiculoView.listarVeiculoPorAgencia(selecaoAgencia);
 
-
-        int escolhaVeiculo = ConsoleUIHelper.askInt("Selecione o veículo através do índice.");
-        List<? extends Veiculo> veiculos = veiculoController.veiculosPorAgencia((int) escolhaVeiculo);
-
-
-        for (int x = 0; x < veiculos.size(); x++) {
-            if (Integer.valueOf(escolhaVeiculo) == x) {
-                System.out.println("Veículo selecionado:");
-                System.out.println("[" + (x) + "] " + veiculos.get(x).toString());
-                veiculoEscolhido = veiculos.get(x);
-            }
-        }
-
-        if (veiculoEscolhido == null || !veiculoEscolhido.estaDisponivel()) {
-            System.out.println("Veículo não encontrado ou não disponível para aluguel.");
-            return null;
-        } else {
-            veiculoEscolhido.setDisponivel(false);
-            return veiculoEscolhido;
-        }
     }
-
-
-
-
 
     //Métodos Públicos
     @Override
