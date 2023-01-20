@@ -24,7 +24,7 @@ public class VeiculoView {
         Veiculo veiculo = null;
         String categoria;
 
-        System.out.println("Agências:");
+        //System.out.println("Agências:");
         agenciaView.listarAgencias();
 
         int agencia = ConsoleUIHelper.askInt("Informe o index da agência em que deseja cadastrar o veículo: ");

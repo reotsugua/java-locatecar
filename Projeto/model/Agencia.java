@@ -32,6 +32,14 @@ public class Agencia {
         this.endereco = endereco;
     }
 
+    public List<Veiculo> getInventario() {
+        return inventario;
+    }
+
+    public void setInventario(List<Veiculo> inventario) {
+        this.inventario = inventario;
+    }
+
     @Override
     public String toString() {
         return "AGÊNCIA =" +

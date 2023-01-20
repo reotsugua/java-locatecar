@@ -8,13 +8,18 @@ import Projeto.controller.VeiculoController;
 import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
 import Projeto.view.AgenciaView;
+import Projeto.view.AluguelView;
 import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
+
+import static Projeto.view.AluguelView.escolhaAgencia;
+
 
 public class Menu {
     public static ClienteView clienteView;
     public static AgenciaView agenciaView;
     public static VeiculoView veiculoView;
+    public static AluguelView aluguelView;
     /*
     List<Agencia> agencias;
     Scanner scanner = new Scanner(System.in);
@@ -32,6 +37,9 @@ public class Menu {
         }
         if (veiculoView == null) {
             veiculoView = new VeiculoView();
+        }
+        if (aluguelView == null) {
+            aluguelView = new AluguelView();
         }
 
     }
@@ -202,6 +210,7 @@ public class Menu {
             switch (opcao) {
                 case 0:
                     System.out.println("Alugar veiculo");
+                    escolhaAgencia();
                     //sistema.alugarVeiculo("veiculo", "cliente", "agencia", LocalDateTime.of(2023, 01, 13, 14, 22));
                     break;
                 case 1:

@@ -1,42 +1,52 @@
 package Projeto.view;
 
 import Projeto.controller.AgenciaController;
+import Projeto.controller.VeiculoController;
 import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class AgenciaView extends Agencia{
-    private static AgenciaController controller;
+    private static AgenciaController agenciaController;
+
+
 
 
     public AgenciaView() {
-        if (controller == null) {
-            controller = new AgenciaController();
+        if (agenciaController == null) {
+            agenciaController = new AgenciaController();
         }
+
     }
 
     public void cadastrarAgencia() {
 
         Agencia agencia;
+        Moto moto = new Moto();
 
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome da agência: ", 2);
         String endereco = ConsoleUIHelper.askNoEmptyInput("Informe o endereço da agência: ", 2);
 
-        Agencia agenciaExistente = controller.agenciaExistente(nome);
+        Agencia agenciaExistente = agenciaController.agenciaExistente(nome);
 
         while (agenciaExistente != null){
             System.out.println("Agência já cadastrada.");
             nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome da agência: ", 2);
-            agenciaExistente = controller.agenciaExistente(nome);
+            agenciaExistente = agenciaController.agenciaExistente(nome);
         }
 
         agencia = new Agencia(nome, endereco);
-        controller.cadastrarAgencia(agencia);
+        //agencia.setInventario();
+        agenciaController.cadastrarAgencia(agencia);
+
+
     }
 
     public void listarAgencias() {
-        List<Agencia> agencias = controller.listarAgencias();
+        List<Agencia> agencias = agenciaController.listarAgencias();
+
 
         if(agencias.size() != 0) {
             for (int i = 0; i < agencias.size(); i++) {
@@ -44,6 +54,9 @@ public class AgenciaView extends Agencia{
             }
         } else {
             System.out.println("Oops! Não há agências cadastradas.");
+            System.out.println("Cadastre uma Agência: ");
+            cadastrarAgencia();
+            listarAgencias();
         }
     }
 
@@ -51,7 +64,7 @@ public class AgenciaView extends Agencia{
 
         listarAgencias();
 
-        List<Agencia> agencias = controller.listarAgencias();
+        List<Agencia> agencias = agenciaController.listarAgencias();
 
         String escolha = ConsoleUIHelper.askNoEmptyInput("Informe o index da agência que deseja alterar:", 2);
 
@@ -69,7 +82,7 @@ public class AgenciaView extends Agencia{
 
     public void pesquisarAgencia(){
         String nomeOuLogradouro = ConsoleUIHelper.askNoEmptyInput("Informe o nome ou logradouro da agência : ", 2);
-        List<Agencia> agenciasEncontradas = controller.pesquisarAgencia(nomeOuLogradouro);
+        List<Agencia> agenciasEncontradas = agenciaController.pesquisarAgencia(nomeOuLogradouro);
         for (Agencia agencia: agenciasEncontradas) {
             System.out.println(agencia);
         }
