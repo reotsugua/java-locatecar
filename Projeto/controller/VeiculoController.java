@@ -1,7 +1,8 @@
 package Projeto.controller;
 
 
-import Projeto.view.Veiculo;
+import Projeto.model.Agencia;
+import Projeto.model.Veiculo;
 
 import java.util.ArrayList;
 import java.util.List;

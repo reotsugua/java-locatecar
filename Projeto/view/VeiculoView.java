@@ -55,10 +55,10 @@ public class VeiculoView {
 
         Veiculo veiculoExistente = controller.veiculoExistente(placa);
         while (veiculoExistente != null){
-                System.out.println("Veículo já cadastrado.");
-                System.out.println("Informe uma nova placa.");
-                placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
-                veiculoExistente = controller.veiculoExistente(placa);
+            System.out.println("Veículo já cadastrado.");
+            System.out.println("Informe uma nova placa.");
+            placa = ConsoleUIHelper.askNoEmptyInput("Informe a placa: ", 2);
+            veiculoExistente = controller.veiculoExistente(placa);
         }
         veiculo.setAgencia(agencia);
         veiculo.setTipoVeiculo(categoria);

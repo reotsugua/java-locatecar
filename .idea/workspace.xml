@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34951b61-4c5e-4e9c-8aaa-48cc966cf62c" name="Changes" comment="Criando Interface Locação e Classe Alguel">
-      <change beforePath="$PROJECT_DIR$/Projeto/model/Aluguel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/model/Aluguel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto/view/AluguelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/AluguelView.java" afterDir="false" />
+    <list default="true" id="34951b61-4c5e-4e9c-8aaa-48cc966cf62c" name="Changes" comment="resolvendo conflitos do git">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,22 +32,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Renan/OneDrive/meugit/POO-Java-Guanabara",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Renan/OneDrive/meugit/POO-Java-Guanabara&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Projeto.Main" />
@@ -105,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674149777681</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="resolvendo conflitos do git">
+      <created>1674181191406</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1674181191406</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,7 +132,8 @@
     <MESSAGE value="Refatorando a Classe Aluguel, add as classes Agencia,Veiculo e Cliente como atributos." />
     <MESSAGE value="Tentei Refatorar a Classe Veiculo apara colocar agencia como atributo mas nao deu certo" />
     <MESSAGE value="Criando Interface Locação e Classe Alguel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando Interface Locação e Classe Alguel" />
+    <MESSAGE value="resolvendo conflitos do git" />
+    <option name="LAST_COMMIT_MESSAGE" value="resolvendo conflitos do git" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

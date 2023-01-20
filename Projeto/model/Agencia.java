@@ -1,7 +1,5 @@
 package Projeto.model;
 
-import Projeto.view.Veiculo;
-
 import java.util.List;
 
 public class Agencia {

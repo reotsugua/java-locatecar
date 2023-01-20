@@ -1,7 +1,5 @@
 package Projeto.model;
 
-import Projeto.view.Veiculo;
-
 import java.math.BigDecimal;
 
 public class Carro extends Veiculo {
