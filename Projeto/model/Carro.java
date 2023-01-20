@@ -8,8 +8,8 @@ public class Carro extends Veiculo {
         super();
     }
 
-    public Carro(String tipoVeiculo, String fabricante, String modelo, String placa) {
-        super(tipoVeiculo, fabricante, modelo, placa);
+    public Carro(int agencia, String tipoVeiculo, String fabricante, String modelo, String placa) {
+        super(agencia, tipoVeiculo, fabricante, modelo, placa);
     }
 
     /*public Carro(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {

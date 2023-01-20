@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 
 public class Caminhao extends Veiculo {
 
-        public Caminhao() {
-            super();
-        }
+    public Caminhao() {
+        super();
+    }
 
-    public Caminhao(String tipoVeiculo, String fabricante, String modelo, String placa) {
-        super(tipoVeiculo, fabricante, modelo, placa);
+    public Caminhao(int agencia, String tipoVeiculo, String fabricante, String modelo, String placa) {
+        super(agencia, tipoVeiculo, fabricante, modelo, placa);
     }
 
     /*public Caminhao(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {
@@ -17,9 +17,9 @@ public class Caminhao extends Veiculo {
     }*/
 
     @Override
-        public BigDecimal getValorDiaria() {
-            return new BigDecimal(200.0);
-        }
+    public BigDecimal getValorDiaria() {
+        return new BigDecimal(200.0);
+    }
 
 
 

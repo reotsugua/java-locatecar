@@ -4,12 +4,12 @@ import java.math.BigDecimal;
 
 public class Moto extends Veiculo {
 
-        public Moto() {
-            super();
-        }
+    public Moto() {
+        super();
+    }
 
-    public Moto(String tipoVeiculo, String fabricante, String modelo, String placa) {
-        super(tipoVeiculo, fabricante, modelo, placa);
+    public Moto(int agencia, String tipoVeiculo, String fabricante, String modelo, String placa) {
+        super(agencia, tipoVeiculo, fabricante, modelo, placa);
     }
 
     /*public Moto(String tipoVeiculo, String fabricante, String modelo, String placa, Agencia agencia) {
@@ -17,9 +17,9 @@ public class Moto extends Veiculo {
     }*/
 
     @Override
-        public BigDecimal getValorDiaria() {
-            return new BigDecimal(100.0);
-        }
+    public BigDecimal getValorDiaria() {
+        return new BigDecimal(100.0);
+    }
 
 }
 

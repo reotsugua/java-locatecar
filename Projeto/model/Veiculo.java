@@ -17,7 +17,8 @@ public abstract class Veiculo {
         this.valorDiaria = getValorDiaria();
     }
 
-    public Veiculo(String tipoVeiculo, String fabricante, String modelo, String placa) {
+    public Veiculo(int agencia, String tipoVeiculo, String fabricante, String modelo, String placa) {
+        this.agencia = agencia;
         this.tipoVeiculo = tipoVeiculo;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -39,7 +40,7 @@ public abstract class Veiculo {
         return agencia;
     }
 
-    public void setAgencia(Agencia agencia) {
+    public void setAgencia(String agencia) {
         this.agencia = agencia;
     }*/
 
