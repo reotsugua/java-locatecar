@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import Projeto.controller.VeiculoController;
 import Projeto.model.Agencia;
+import Projeto.model.Veiculo;
 import Projeto.util.ConsoleUIHelper;
 import Projeto.view.AgenciaView;
 import Projeto.view.AluguelView;
@@ -13,9 +14,8 @@ import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
 
 import static Projeto.view.AluguelView.escolhaAgencia;
-import static Projeto.view.AluguelView.escolhaCliente;
 
-public class Menu {
+public class Menu<Cliente> {
     public static ClienteView clienteView;
     public static AgenciaView agenciaView;
     public static VeiculoView veiculoView;
@@ -127,29 +127,15 @@ public class Menu {
 
             switch (opcao) {
                 case 0:
-                    /*
-                    Agencia agencia = new Agencia();
-                    agencia = sistema.cadastrarAgencia(agencia);
-                    break;
-                     */
                     agenciaView.cadastrarAgencia();
                     break;
                 case 1:
-                    //System.out.println("Alterar agencia");
-                    //sistema.alterarAgencia("nome", "endereço");
                     agenciaView.alterarAgencia();
                     break;
                 case 2:
-                    /*
-                    System.out.println("Buscar Agencias");
-                    sistema.listarAgencias();
-                    break;
-                    */
                     agenciaView.listarAgencias();
                     break;
                 case 3:
-                    //System.out.println("buscar por endereco");
-                    //sistema.buscarAgenciaPorEndereco("endereço");
                     agenciaView.pesquisarAgencia();
                     break;
                 case 4:
@@ -209,15 +195,12 @@ public class Menu {
 
             switch (opcao) {
                 case 0:
-                    System.out.println("Alugar veiculo");
-                    escolhaAgencia();
-                    aluguelView.escolhaVeiculo();
-                    //sistema.alugarVeiculo("veiculo", "cliente", "agencia", LocalDateTime.of(2023, 01, 13, 14, 22));
+                    int agenciaEscolhida = escolhaAgencia();
+                    Veiculo veiculoEscolhido = aluguelView.escolhaVeiculo(agenciaEscolhida);
+                    Cliente clienteEscolhido = (Cliente) aluguelView.escolhaCliente();
                     break;
                 case 1:
                     System.out.println("Devolver veiculo");
-                    escolhaCliente();
-                    //sistema.devolverVeiculo("veiculo", LocalDateTime.of(2023, 02, 13, 18, 22));
                     break;
                 case 2:
                     continuar = false;

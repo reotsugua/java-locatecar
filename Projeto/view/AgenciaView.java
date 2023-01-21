@@ -25,7 +25,7 @@ public class AgenciaView extends Agencia{
 
         Agencia agencia;
         Moto moto = new Moto();
-
+        ConsoleUIHelper.drawHeader("Cadastro de Agência", 80);
         String nome = ConsoleUIHelper.askNoEmptyInput("Informe o nome da agência: ", 2);
         String endereco = ConsoleUIHelper.askNoEmptyInput("Informe o endereço da agência: ", 2);
 
@@ -52,8 +52,7 @@ public class AgenciaView extends Agencia{
                 System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
             }
         } else {
-            System.out.println("Oops! Não há agências cadastradas.");
-            System.out.println("Cadastre uma Agência: ");
+            ConsoleUIHelper.drawHeader("Oops! Não há agências cadastradas. Cadastre uma Agência.",80);
             cadastrarAgencia();
             listarAgencias();
         }

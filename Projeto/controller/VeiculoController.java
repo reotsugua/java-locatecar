@@ -6,6 +6,7 @@ import Projeto.model.Veiculo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class VeiculoController <T extends Veiculo> {
     private List<T> veiculos;
@@ -52,9 +53,9 @@ public class VeiculoController <T extends Veiculo> {
         return null;
     }
 
-    public List<T> veiculosPorAgencia(int agencia) {
-        List<T> veiculosPorAgencia =
-                veiculos.stream().filter( veiculo -> veiculo.getAgencia() == agencia).toList();
+    public List<Veiculo> veiculosPorAgencia(int agencia) {
+        List<Veiculo> veiculosPorAgencia =
+                veiculos.stream().filter( veiculo -> veiculo.getAgencia() == agencia).collect(Collectors.toList());
         return veiculosPorAgencia;
     }
 

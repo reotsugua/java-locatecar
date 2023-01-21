@@ -8,7 +8,6 @@ import Projeto.model.*;
 import Projeto.util.ConsoleUIHelper;
 
 import java.util.List;
-import java.util.Scanner;
 
 import static Projeto.Menu.*;
 
@@ -32,8 +31,8 @@ public class AluguelView implements Locacao {
         }
     }
 
-    public static Agencia escolhaAgencia() {
-        Agencia agenciaEscolhida = null;
+    public static int escolhaAgencia() {
+        int agenciaEscolhida=0;
 
         agenciaView.listarAgencias();
 
@@ -41,38 +40,43 @@ public class AluguelView implements Locacao {
 
         String escolhaAgencia = ConsoleUIHelper.askNoEmptyInput("Informe o indice da agência que deseja:", 2);
         selecaoAgencia = Integer.parseInt(escolhaAgencia);
-        for (int i = 0; i < agencias.size(); i++) {
-            if (Integer.valueOf(escolhaAgencia) == i) {
-                System.out.println("Agência selecionada:");
-                System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
-                agenciaEscolhida = agencias.get(i);
+        try{
+            if(agencias.get(selecaoAgencia).getInventario().size()>0){
+                for (int i = 0; i < agencias.size(); i++) {
+                    if (Integer.valueOf(escolhaAgencia) == i) {
+                        System.out.println("Agência selecionada:");
+                        System.out.println("[" + (i) + "] " + agencias.get(i).getNome());
+                        agenciaEscolhida = Integer.parseInt(agencias.get(i).toString());
+                    }
+                }
             }
+            return agenciaEscolhida;
+        }catch(IndexOutOfBoundsException e){
+            ConsoleUIHelper.drawHeader("Não há veiculos cadastrados nesta agencia. Cadastre um veículo.",80);
+            veiculoView.cadastrarVeiculo();
+            return 0;
         }
-        return agenciaEscolhida;
     }
 
-    public void escolhaVeiculo() {
-
-        veiculoView.listarVeiculoPorAgencia(selecaoAgencia);
-
+    public Veiculo escolhaVeiculo(int agenciaEscolhida) {
+        Veiculo veiculoEscolhido = null;
+        ConsoleUIHelper.drawHeader("Seleção do Veículo", 80);
+        try{
+            veiculoView.listarVeiculoPorAgencia(agenciaEscolhida);
+            int veiculoPosicao = ConsoleUIHelper.askInt("Digite a ID do veiculo: ");
+            List<Veiculo> veiculos = veiculoController.veiculosPorAgencia(agenciaEscolhida);
+            veiculoEscolhido = veiculos.get(veiculoPosicao);
+            return veiculoEscolhido;
+        }
+        catch (IndexOutOfBoundsException e){
+            return null;
+        }
     }
 
-    public static Cliente escolhaCliente() {
-
-        clienteView.adicionarCliente();
-
-        //List<? extends Cliente> clientes = clienteController.listarClientes();
-
-        System.out.println("Informe o index do cliente que deseja escolher:");
-        clienteView.listarClientes();
-
-        Scanner sc = new Scanner(System.in);
-        int index = sc.nextInt();
-
-        Cliente clienteEscolhido = clienteController.listarCliente(index);
-        return clienteEscolhido;
-
-
+    public Cliente escolhaCliente(){
+        // retornar o cliente cadastrado com tipo correto para fazer o registro do Aluguel
+        Cliente cliente = new ClientePF("Joao","12312312312");
+        return cliente;
     }
 
     //Métodos Públicos

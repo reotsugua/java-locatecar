@@ -11,7 +11,7 @@ public abstract class Veiculo {
     protected int agencia;
     //protected Agencia agencia;
     protected BigDecimal valorDiaria;
-//    protected boolean alugado;
+    //    protected boolean alugado;
     private boolean disponivel = true;
 
     public Veiculo() {

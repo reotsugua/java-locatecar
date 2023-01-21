@@ -87,9 +87,8 @@ public class VeiculoView {
             System.out.print("ID " + i+ " | " + veiculosFiltrados.get(i)+"\n");
             veiculoSelecionado = veiculosFiltrados.get(i);
         }
-        ConsoleUIHelper.askInt("Selecione o veículo através do índice.");
 
-        System.out.println(veiculoSelecionado);
+        // System.out.println(veiculoSelecionado);
 
 
     }
