@@ -82,6 +82,9 @@ public class VeiculoView {
         List<Veiculo> veiculos = controller.listarVeiculos();
         List<Veiculo> veiculosFiltrados = veiculos.stream().filter(veiculo -> veiculo.getAgencia() == agencia).collect(Collectors.toList());
         Veiculo veiculoSelecionado = null;
+        /*if (veiculosFiltrados == null) {
+            veiculoView.cadastrarVeiculo();
+        }*/
         for (int i = 0; i < veiculosFiltrados.size(); i++) {
 
             System.out.print("ID " + i+ " | " + veiculosFiltrados.get(i)+"\n");

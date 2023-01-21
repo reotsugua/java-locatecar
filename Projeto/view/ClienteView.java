@@ -5,8 +5,6 @@ import Projeto.model.Cliente;
 import Projeto.model.ClientePF;
 import Projeto.model.ClientePJ;
 import Projeto.util.ConsoleUIHelper;
-
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 

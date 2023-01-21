@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34951b61-4c5e-4e9c-8aaa-48cc966cf62c" name="Changes" comment="Listando veiculos por Agencia">
+    <list default="true" id="34951b61-4c5e-4e9c-8aaa-48cc966cf62c" name="Changes" comment="Tirando alguns comentários.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Projeto/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Projeto/view/AluguelView.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/view/AluguelView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Projeto/controller/VeiculoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Projeto/controller/VeiculoController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RAS" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -85,7 +90,7 @@
       <workItem from="1674141268938" duration="46000" />
       <workItem from="1674143026481" duration="6862000" />
       <workItem from="1674181296964" duration="250000" />
-      <workItem from="1674224277287" duration="14217000" />
+      <workItem from="1674224277287" duration="23379000" />
     </task>
     <task id="LOCAL-00001" summary="Refatorando a Classe Aluguel, add as classes Agencia,Veiculo e Cliente como atributos.">
       <created>1674145290208</created>
@@ -136,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674232613539</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add escolha de cliente para o aluguel">
+      <created>1674246613738</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1674246613738</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tirando alguns comentários.">
+      <created>1674248784918</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1674248784918</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +179,9 @@
     <MESSAGE value="resolvendo conflitos do git" />
     <MESSAGE value="Obrigando cadastrar Agência antes de cadastrar os veículos." />
     <MESSAGE value="Listando veiculos por Agencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Listando veiculos por Agencia" />
+    <MESSAGE value="Add escolha de cliente para o aluguel" />
+    <MESSAGE value="Tirando alguns comentários." />
+    <option name="LAST_COMMIT_MESSAGE" value="Tirando alguns comentários." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

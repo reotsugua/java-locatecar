@@ -1,17 +1,11 @@
 package Projeto;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Scanner;
-
-import Projeto.controller.VeiculoController;
-import Projeto.model.Agencia;
 import Projeto.util.ConsoleUIHelper;
 import Projeto.view.AgenciaView;
 import Projeto.view.AluguelView;
 import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
-
 import static Projeto.view.AluguelView.escolhaAgencia;
 import static Projeto.view.AluguelView.escolhaCliente;
 
@@ -20,13 +14,7 @@ public class Menu {
     public static AgenciaView agenciaView;
     public static VeiculoView veiculoView;
     public static AluguelView aluguelView;
-    /*
-    List<Agencia> agencias;
-    Scanner scanner = new Scanner(System.in);
-    Sistema sistema = new Sistema();
-    */
 
-    //VeiculoView veiculoView = new VeiculoView();
 
     public Menu() {
         if (clienteView == null) {
@@ -212,11 +200,11 @@ public class Menu {
                     System.out.println("Alugar veiculo");
                     escolhaAgencia();
                     aluguelView.escolhaVeiculo();
+                    escolhaCliente();
                     //sistema.alugarVeiculo("veiculo", "cliente", "agencia", LocalDateTime.of(2023, 01, 13, 14, 22));
                     break;
                 case 1:
                     System.out.println("Devolver veiculo");
-                    escolhaCliente();
                     //sistema.devolverVeiculo("veiculo", LocalDateTime.of(2023, 02, 13, 18, 22));
                     break;
                 case 2:
