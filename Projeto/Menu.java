@@ -6,7 +6,6 @@ import Projeto.view.AgenciaView;
 import Projeto.view.AluguelView;
 import Projeto.view.ClienteView;
 import Projeto.view.VeiculoView;
-
 import static Projeto.view.AluguelView.escolhaAgencia;
 import static Projeto.view.AluguelView.escolhaCliente;
 
@@ -15,7 +14,7 @@ public class Menu {
     public static AgenciaView agenciaView;
     public static VeiculoView veiculoView;
     public static AluguelView aluguelView;
-    
+
 
     public Menu() {
         if (clienteView == null) {
